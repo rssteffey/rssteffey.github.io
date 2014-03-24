@@ -1,0 +1,88 @@
+body, html {
+  height: 100%;
+}
+
+h1 	{ 
+	text-align: center;
+	font-size: 48px;
+	font-family: 'Fjalla One', sans-serif;
+	color:#253A99;
+	}
+p	{
+	font-size:24px;
+	font-family: 'Jura', sans-serif;
+	}
+a	{
+	font-size:18px;
+	font-family: 'Jura', sans-serif;
+	}
+
+
+.main h1 { 
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	text-align: center;
+	font-size: 96px;
+	font-family: 'Chelsea Market', cursive;
+	z-index:5000;
+	color:#253A99;
+	}
+	
+div {
+    align="center"
+	}
+	
+.boxed
+	{
+		text-align:center;
+		line-height: 52px;
+		color:white;
+		background-color: #253A99;
+		width: 10%;
+		height: 50px;
+		position:absolute;
+		top: 300px;
+		z-index:5000;
+		border-radius: 15px;
+	}
+
+.boxed a 
+	{
+		color:white;
+		font-size: 28px;
+		text-decoration: none;
+		font-family: 'Fjalla One', sans-serif;
+	}
+	
+.boxed a:visited
+{
+	color:white;
+	font-size: 24px;
+	text-decoration: none;
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.boxed a:hover
+{
+	color:#00FFB7;
+	font-size: 32px;
+	text-decoration: none;
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.bground
+{
+	position:absolute;
+	height:100%;
+	background-color:white;
+	background-repeat: repeat;
+}
+
+.bgroundRip
+{
+	position:absolute;
+	height:100%;
+	background-repeat: repeat;
+	text-align:center;
+}

@@ -16,7 +16,19 @@
 		their path.  This lets the user see the circuit being drawn.  The logical choices being made
 		only at set gridPoints keeps collision detection at a manageable level (and looks better)
 
+		I'm not even going to try and explain the logic behind the collision detection in condensed
+		form because after so much testing and failing and adding two desperate extra lines at a time...
+		it's a mess.
+		
+		All I know is that the function to assign grid spaces as filled is functioning correctly
+		(as evidenced by the commented out code that draws yellow dots in full spaces)
+		so the issue lies in the way I'm checking for full spaces (or at least when I should be running that call)
+		If anyone wants to identify/fix the issue- feel free.  I would love you.
 
+		
+		
+		
+		Special thanks to Eric Moon for helping me remember how to generate noise in Photoshop for the pen effect
 */
 
 
@@ -58,6 +70,8 @@ var newDir;
 
 
 var gridSize = 45;
+
+var  pen;
  
 //First method to load the canvas and initiate logic
 function firstDraw()
@@ -71,7 +85,14 @@ function firstDraw()
   {
 	 ctx = canvas.getContext('2d');
   }
+  opaque=0;
   
+  ctx.globalAlpha = 0;
+  
+   clear();
+	Paths=[];
+	Temps=[];
+	Grid=[];
   //*2 to account for lines being cells too
   //+gridSize to mod by 40
   for (var gridx=0; gridx< canvas.width*2; gridx=gridx+gridSize)
@@ -86,13 +107,22 @@ function firstDraw()
 		Grid.push(thisRow);
   }
   
+  var img = new Image();
+  img.src = 'Images/pen.png';
+  img.onload = function(){
+
+    // create pattern
+    pen = ctx.createPattern(img,'repeat');
+
+  }
+  
   
   
   canvHeight = canvas.height;
   canvWidth = canvas.width;
   //Dark blue from homepage
-  ctx.strokeStyle = "#253A99";
-  ctx.fillStyle = "#253A99";
+  ctx.strokeStyle = pen;//"#253A99";
+  ctx.fillStyle = pen;//"#253A99";
   
   requestAnimationFrame(logic); // start the first frame
    //setTimeout(logic, 1000/200);
@@ -102,26 +132,46 @@ var mouseOut;
 
 function removeMouse()
 {
+	//fade('code');
 	mouseOut=true;
 }
-
+var opaque;
 //Main Logic Loop for the script
 function logic()
 {
+		if (mouseOut)
+		{
+			opaque=0;
+			opacityWindDown();
+			return;
+		}
+		if (ctx.globalAlpha < 1.0)
+		{
+			ctx.globalAlpha =  ((ctx.globalAlpha*100)+2)/100;
+		}
+		//ctx.globalAlpha = 1.0;
 		clear();
 		move();
 		draw();
-		if (mouseOut)
-		{
-			clear();
-			Paths=[];
-			Temps=[];
-			Grid=[];
-			
-			return;
-		}
 		//setTimeout(logic, 1000/60);
 		requestAnimationFrame(logic); //Keeps the browser from locking up.  Remember this.
+}
+
+function opacityWindDown()
+{
+	opaque+= 3;
+	if (opaque < 100)
+	{
+		ctx.globalAlpha = (100-opaque)/100;
+		clear();
+		//document.write(ctx.globalAlpha + ", ");
+		draw();
+		requestAnimationFrame(opacityWindDown);
+	}
+	//else
+	//{
+		return;
+	//}
 }
   
 function clear()
@@ -133,8 +183,8 @@ function clear()
 function draw()
 {
 	//Temporary lines for testing
-	ctx.strokeStyle = "#253A99";
-   ctx.fillStyle = "#253A99";
+	ctx.strokeStyle = pen;
+   ctx.fillStyle = pen;
 	
 	//Not checked.  Manually ensure paths are at least 2 nodes
 	for (var i = 0; i < Paths.length; i++)
@@ -449,6 +499,10 @@ function isOpenNeighbor(ryan, dirToTest)
 //Generate Direction Choice List  //FINISH THIS
 function generateDirectionList(tempor)
 {
+	if (tempor.direction == null)
+	{
+		return Directions;
+	}
 	var newList = possDir(tempor);
 	var newList2 = [];
 	for (var i=0; i<newList.length; i++)
@@ -520,3 +574,6 @@ function direction(x,y)
 	this.x=x;
 	this.y=y;
 }
+
+
+

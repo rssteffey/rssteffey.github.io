@@ -30,8 +30,9 @@
 		
 		Special thanks to Eric Moon for helping me remember how to generate noise in Photoshop for the pen effect
 */
+var circuits = new mainWrapper();
 
-
+function mainWrapper(){
 
 //var zed = new tempPoint(40, 50, 0);
 
@@ -72,6 +73,8 @@ var newDir;
 var gridSize = 45;
 
 var  pen;
+
+this.firstDraw = firstDraw;
  
 //First method to load the canvas and initiate logic
 function firstDraw()
@@ -129,7 +132,7 @@ function firstDraw()
 }  
 
 var mouseOut;
-
+this.removeMouse = removeMouse;
 function removeMouse()
 {
 	//fade('code');
@@ -137,6 +140,7 @@ function removeMouse()
 }
 var opaque;
 //Main Logic Loop for the script
+this.logic=logic;
 function logic()
 {
 		if (mouseOut)
@@ -157,6 +161,7 @@ function logic()
 		requestAnimationFrame(logic); //Keeps the browser from locking up.  Remember this.
 }
 
+this.opacityWindDown = opacityWindDown;
 function opacityWindDown()
 {
 	opaque+= 3;
@@ -168,18 +173,17 @@ function opacityWindDown()
 		draw();
 		requestAnimationFrame(opacityWindDown);
 	}
-	//else
-	//{
 		return;
-	//}
 }
   
+this.clear=clear;
 function clear()
 {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 } 
  
 //Draw all items in the path array 
+this.draw=draw;
 function draw()
 {
 	//Temporary lines for testing
@@ -207,29 +211,13 @@ function draw()
 		ctx.beginPath();
 		ctx.moveTo(Temps[k].x, Temps[k].y);
 		//This convoluted enough?  Draws from the current moving point to the last point in the associated path
-		//ctx.lineTo(0,0);
 		ctx.lineTo(Paths[Temps[k].pathIndex][Paths[Temps[k].pathIndex].length-1].x, Paths[Temps[k].pathIndex][Paths[Temps[k].pathIndex].length-1].y);
 		ctx.closePath();
 		ctx.stroke();
 	}
-	/*
-	ctx.strokeStyle = "yellow";
-	ctx.fillStyle = "yellow";
-	for (var g=0; g<Grid.length; g++)
-			{
-				for (var m=0; m<Grid[0].length; m++)
-				{
-					if (!Grid[g][m].isEmpty)
-					{
-						ctx.beginPath();
-						ctx.arc(g*20, m*20, 3, 0, Math.PI*2, true); 
-						ctx.closePath();
-						ctx.fill();
-					}
-				}
-			}*/
 }
 var counter=0;
+this.move=move;
 //Moves the temp points and runs all logic checks
 function move()
 {
@@ -291,7 +279,7 @@ function move()
 		}*/
 	}
 }
-
+this.fakeTemp=fakeTemp;
 function fakeTemp(x,y)
 {
 	this.x=x;
@@ -299,6 +287,7 @@ function fakeTemp(x,y)
 }
 
 //X coord, Y coord, Boolean for Node
+this.pathPoint=pathPoint;
 function pathPoint(x,y,node)
 {
 	this.x=x;
@@ -327,6 +316,7 @@ function pathPoint(x,y,node)
 	
 }
 
+this.tempPoint=tempPoint;
 //TempPoint to track current movers
 function tempPoint(x,y, pathInder)
 {
@@ -358,6 +348,7 @@ function tempPoint(x,y, pathInder)
 		}
 }
 
+this.junction=junction;
 //Choice to make at grid intersection
 function junction(tempor)
 {
@@ -404,7 +395,7 @@ function junction(tempor)
 	return;
 }
 
-
+this.fillSpace=fillSpace;
 function fillSpace(thisTemp)
 {
 	var numx=thisTemp.x/(gridSize/2);
@@ -427,19 +418,7 @@ if((numx+backwards.x) < Grid.length && (numy+backwards.y) < Grid[0].length  && (
 			}
 }
 
-$(document).ready(function() {
-      $("#YourLinkId").hover(functionToHandleWhenMouseEnters, 
-                             functionToHandleWhenMouseLeaves);
-});
-
-function functionToHandleWhenMouseEnters() {
-     $(this).css({background : red});
-}
-
-function functionToHandleWhenMouseLeaves() {
-     $(this).css({background: white});
-}
-
+this.changeDirection=changeDirection;
 function changeDirection(temporar)
 {
 	var dirList = generateDirectionList(temporar);
@@ -456,6 +435,7 @@ function changeDirection(temporar)
 	return;
 }
 
+this.endPath=endPath;
 //Ends the current path
 function endPath(tempo)
 {
@@ -472,7 +452,7 @@ function endPath(tempo)
 	}
 }
 
-
+this.isOpenNeighbor=isOpenNeighbor;
 //Check to ensure node is not blocked
 function isOpenNeighbor(ryan, dirToTest)
 {
@@ -496,6 +476,7 @@ function isOpenNeighbor(ryan, dirToTest)
 	return false;
 }
 
+this.generateDirectionList=generateDirectionList;
 //Generate Direction Choice List  //FINISH THIS
 function generateDirectionList(tempor)
 {
@@ -516,6 +497,7 @@ function generateDirectionList(tempor)
 	return newList2;
 }
 
+this.possDir=possDir;
 //Return possible new directions based on old direction
 function possDir(test)
 {
@@ -556,7 +538,7 @@ function possDir(test)
 
 }
 
-
+this.gridItem=gridItem;
 function gridItem()
 {
 	this.isEmpty=true;
@@ -568,6 +550,7 @@ function gridItem()
 	}
 }
 
+this.direction=direction;
 //Direction to help enumerate
 function direction(x,y)
 {
@@ -576,4 +559,6 @@ function direction(x,y)
 }
 
 
+
+}
 

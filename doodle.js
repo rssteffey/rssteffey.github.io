@@ -24,18 +24,19 @@ var Doodles;
 var DoodleReference;
 var  pen;
 var newDoodle;
+var timer=0;
 
 //Constants
 var DoodleAmount = 4;  //THIS MUST BE MANUALLY UPDATED FOR EACH POSSIBLE NEW DOODLE TYPE ADDED
 var fps = 15; //FPS of the animations
-var maxVel=10; //Twice the possible velocity
- 
+var maxVel = 10; //Twice the possible velocity
+var emitAmount = 7;
  this.firstDraw = firstDraw;
 //First method to load the canvas and initiate logic
 function firstDraw()
 {
 	canvas = document.getElementById('doodle');
-	
+	timer=emitAmount-1;
 	mouseOut=false;
   if (canvas.getContext)
   {
@@ -60,9 +61,14 @@ function firstDraw()
   
   ctx.strokeStyle = pen;//"#253A99";
   ctx.fillStyle = pen;//"#253A99";
+  ctx.lineWidth=1.5;
   
   canvHeight = canvas.height;
   canvWidth = canvas.width;
+  
+  emitDoodle();
+  emitDoodle();
+  emitDoodle();
   
   logic();
   //requestAnimationFrame(logic);
@@ -130,16 +136,32 @@ function myStopFunction()
 clearTimeout(myFunc);
 }
 
-var timer=9;
-
 this.move=move;
 function move()
 {
 	timer++;
 	//If more doodles should be on screen
-	if ( timer%10==0 && !mouseOut)//Doodles.length < 6 && !mouseOut)
+	if ( timer%emitAmount==0 && !mouseOut)//Doodles.length < 6 && !mouseOut)
 	{
-		var newDoodleIndex = (Math.floor((Math.random()*(DoodleAmount))));
+		emitDoodle();
+	}
+	
+	for (var f = 0; f < Doodles.length; f++)
+	{
+		Doodles[f].moveBy();
+		//If doodle leaves canvas, kill it
+		if (Doodles[f].x > canvWidth+(Doodles[f].scale*Doodles[f].width) || Doodles[f].y > canvHeight+(Doodles[f].scale*Doodles[f].height) || Doodles[f].y < 0-(Doodles[f].scale*Doodles[f].height))
+		{
+			Doodles.splice(f, 1);
+		}
+	}
+}
+
+
+this.emitDoodle=emitDoodle;
+function emitDoodle()
+{
+	var newDoodleIndex = (Math.floor((Math.random()*(DoodleAmount))));
 		var randx=-100//(Math.floor((Math.random()*(canvWidth/2))));
 		var randy=(Math.floor((Math.random()*(canvHeight))));
 		var randvelx=(Math.floor((Math.random()*(maxVel))))+3;
@@ -167,20 +189,7 @@ function move()
 		}
 		
 		Doodles.push(newDoodle);
-	}
-	
-	for (var f = 0; f < Doodles.length; f++)
-	{
-		Doodles[f].moveBy();
-		//If doodle leaves canvas, kill it
-		if (Doodles[f].x > canvWidth+(Doodles[f].scale*Doodles[f].width) || Doodles[f].y > canvHeight+(Doodles[f].scale*Doodles[f].height) || Doodles[f].y < 0-(Doodles[f].scale*Doodles[f].height))
-		{
-			Doodles.splice(f, 1);
-		}
-	}
 }
-
-
 
 
 //------------Doodles--------------

@@ -29,9 +29,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
+
 blockquote, q {
 	quotes: none;
 }
@@ -57,8 +55,8 @@ h2 {
 	text-align: center;
 	font-size: 36px;
 	font-family: 'Fjalla One', sans-serif;
-	color:#253A99;
-	padding:20px;
+	/*color:#253A99;
+	padding:20px;*/
 	}
 	
 .pageTitle 	{ 
@@ -69,6 +67,15 @@ h2 {
 	padding:20px;
 	}
 
+.outlineMe
+{
+    text-shadow:
+    -2px -2px 0 white,
+    2px -2px 0 white,
+    -2px 2px 0 white,
+    2px 2px 0 white;  
+}
+	
 .main h1 { 
 	position: absolute;
 	top: 40px;
@@ -170,13 +177,134 @@ h2 {
 .mainBox a
 {
 	color:white;
-		font-size: 28px;
+		font-size: 24px;
 		font-family: 'Fjalla One', sans-serif;
 }
 
+.codeBox
+{
+	background-color: #253A99;
+	z-index: 500;
+	margin-left: 18%;
+	margin-right: 18%;
+	top:90px;
+	border-radius: 10px;
+	min-height:60%;
+	font-size:18px;
+	font-family: 'Arial', sans-serif;
+	color:white;
+	padding:30px;
+	box-shadow: 0px 0px 0px 4pt white;
+	overflow: auto;
+	margin-bottom:50px;
+}
+
+.codeBox a
+{
+	color:white;
+		font-size: 20px;
+		font-family: 'Fjalla One', sans-serif;
+}
+
+.codeBox h2
+{
+		color:white;
+		font-size: 24px;
+		font-family: 'Fjalla One', sans-serif;
+		text-align:left;
+}
+
+.codeBox ul
+{
+		text-align:left;
+		padding-left:40px;
+		padding-bottom:40px;
+		
+}
+.codeBox li
+{
+		text-align:left;
+		padding-top:10px;
+		
+}
+
+.artBox
+{
+	background-color: #253A99;
+	z-index: 500;
+	margin-left: 8%;
+	margin-right: 8%;
+	min-width: 400px;
+	top:90px;
+	border-radius: 10px;
+	font-size:18px;
+	font-family: 'Arial', sans-serif;
+	color:white;
+	padding:30px;
+	box-shadow: 0px 0px 0px 4pt white;
+	overflow: auto;
+	margin-bottom:50px;
+}
+
+.artBox h2
+{
+	padding-bottom:20px;
+}
+
+.bioBox
+{
+	background-color: #253A99;
+	z-index: 500;
+	margin-left: 12%;
+	margin-right: 12%;
+	min-height: 60%;
+	text-align:left;
+	top:90px;
+	border-radius: 10px;
+	font-size:18px;
+	font-family: 'Arial', sans-serif;
+	color:white;
+	padding:30px;
+	box-shadow: 0px 0px 0px 4pt white;
+	overflow: auto;
+	margin-bottom:50px;
+}
+
+.bioBox li
+{
+		text-align:left;
+		padding-top:10px;
+		
+}
+
+.bioBox ul
+{
+		text-align:left;
+		padding-left:40px;
+		padding-bottom:30px;
+		
+}
+
+.bioBox p
+{
+		text-align:left;
+		padding-bottom:20px;
+		
+}
+
+
+
+
+
+.centerBox
+{
+margin:0;
+margin-left:50%;
+}
+
+
 .footer
 {
-	position: fixed;
 	width: 500px;
 	min-width:500px;
 	height: 24px;
@@ -184,8 +312,7 @@ h2 {
 	margin:0;
 	padding:0;
 	z-index: 502;
-	left: 50%;
-	bottom:5px;
+	margin-bottom:15px;
 	margin-left:-250px;
 	border-radius: 10px;
 	font-size:18px;
@@ -199,15 +326,13 @@ h2 {
 
 .return
 {
-	position: fixed;
 	width: 200px;
 	height: 30px;
 	background-color: #253A99;
 	margin:0;
 	padding:0;
 	z-index: 502;
-	left: 50%;
-	bottom:80px;
+	margin-bottom:15px;
 	margin-left:-100px;
 	border-radius: 10px;
 	font-size:18px;

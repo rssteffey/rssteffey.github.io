@@ -44,7 +44,7 @@ function firstDraw()
   }
   
   //var parentDiv = canvas.parentNode;
-  canvas.width= document.getElementById('doodleCont').clientWidth;
+  canvas.width = document.getElementById('doodleCont').clientWidth;
   canvas.height = document.getElementById('doodleCont').clientHeight;
   
    clear();
@@ -844,5 +844,5 @@ function superBob(x,y, velx, vely, scale)
 
 
 //End brackets for entire script
-}
+};
 

@@ -82,7 +82,7 @@ function firstDraw()
 	canvas = document.getElementById('code');
 	
 	canvas.width=canvas.clientHeight;
-   canvas.height = canvas.clientHeight;
+	canvas.height = canvas.clientHeight;
 	mouseOut=false;
   if (canvas.getContext)
   {
@@ -118,8 +118,6 @@ function firstDraw()
     pen = ctx.createPattern(img,'repeat');
 
   }
-  
-  
   
   canvHeight = canvas.height;
   canvWidth = canvas.width;
@@ -242,18 +240,6 @@ function move()
 			tempy = tempRanda * gridSize;
 			tempRandb = (Math.floor((Math.random()*(canvWidth/gridSize))));
 			tempx = tempRandb * gridSize;
-			//document.write((tempRanda) + " " + (tempRandb) + ", ");
-			//document.write(counter + " ");
-			/*var thisFake = new fakeTemp(tempx, tempy);
-			for (var alpha=0; alpha<8; alpha++)
-			{
-				if(isOpenNeighbor(thisFake, Directions[alpha]));
-				{
-					newDir = Directions[alpha];
-					passable=true;
-					break;
-				}
-			}*/
 			
 		}
 		while((!Grid[tempRanda*2][tempRandb*2].isEmpty) );//&& !passable);
@@ -263,20 +249,6 @@ function move()
 		changeDirection(tempz);
 		Temps.push(tempz);
 		counter++;
-		
-		/*if (counter == 25)
-		{
-			for (var i=0; i<Grid.length; i++)
-			{
-				for (var j=0; j<Grid[0].length; j++)
-				{
-					//newWindowBody.write(Grid[i][j].isEmpty + " ");
-					var text = document.createTextNode(Grid[i][j].isEmpty + " ");
-						newWindowBody.appendChild(text);
-				}
-				//document.write('\n');
-			}
-		}*/
 	}
 }
 this.fakeTemp=fakeTemp;
@@ -560,5 +532,5 @@ function direction(x,y)
 
 
 
-}
+};
 

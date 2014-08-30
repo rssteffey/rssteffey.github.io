@@ -374,11 +374,13 @@ margin-left:50%;
 .photo-grid {
 	width:100%;
 	text-align: center;
+	
 }
  
 .photo-grid div{
 	border: 5px solid white;
 	display: inline-block;
+	vertical-align:middle;
 }
  
 .photo-grid li {
@@ -392,6 +394,7 @@ margin-left:50%;
 	display: block;
 	height: auto;
 	max-width: 100%;
+	
 }
  
 .photo-grid figure {

@@ -59,13 +59,20 @@ this.drawPaint = drawPaint;
 function drawPaint(x,y,size, colour) {
 	
 	//Shadow
+	if (!mouse)
+		ctx.globalAlpha = .3;
+	else if(opacity>.3)
+		ctx.globalAlpha = .3;
+	else
+		ctx.globalAlpha = opacity;
 	ctx.beginPath();
 	ctx.lineCap="round";
 	ctx.moveTo(x+5,y);
 	ctx.lineTo(x+5,-100);
-	ctx.strokeStyle="#909090";
+	ctx.strokeStyle="#000000";
 	ctx.lineWidth = size*2;
 	ctx.stroke();
+	ctx.globalAlpha = opacity;
 	
 	//Paint
 	ctx.beginPath();
@@ -110,7 +117,7 @@ function update(){
     for (var i = 0; i < paint.length; i++){
         paint[i].y = paint[i].y + paint[i].v;
         if (paint[i].y > (height-level) + 10){
-			if(!mouse)
+			if(!mouse && level<=height)
 				level += paint[i].s * .005;
 			
 			paint[i].s = paint[i].s-.2;

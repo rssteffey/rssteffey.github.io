@@ -61,10 +61,8 @@ function drawPaint(x,y,size, colour) {
 	//Shadow
 	if (!mouse)
 		ctx.globalAlpha = .3;
-	else if(opacity>.3)
-		ctx.globalAlpha = .3;
 	else
-		ctx.globalAlpha = opacity;
+		ctx.globalAlpha = opacity * .3;
 	ctx.beginPath();
 	ctx.lineCap="round";
 	ctx.moveTo(x+5,y);

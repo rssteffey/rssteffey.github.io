@@ -1,8 +1,11 @@
 /*
 	Doodles Script
-	
-	-Draws and animates various doodles around the canvas-
+	Draws and animates various doodles around the canvas
 
+	Shawn Steffey
+	
+	
+	Yeah, this file seems massive for a JS.  But the actual code ends around line 200, the rest is hardcoded canvas strokes for the various doodles.
 */
 
 var doodler = new doodleObject();
@@ -31,8 +34,9 @@ var DoodleAmount = 4;  //THIS MUST BE MANUALLY UPDATED FOR EACH POSSIBLE NEW DOO
 var fps = 15; //FPS of the animations
 var maxVel = 10; //Twice the possible velocity
 var emitAmount = 7;
- this.firstDraw = firstDraw;
+
 //First method to load the canvas and initiate logic
+this.firstDraw = firstDraw;
 function firstDraw()
 {
 	canvas = document.getElementById('doodle');
@@ -44,10 +48,10 @@ function firstDraw()
   }
   
   //var parentDiv = canvas.parentNode;
-  canvas.width = document.getElementById('doodleCont').clientWidth;
-  canvas.height = document.getElementById('doodleCont').clientHeight;
+	canvas.width = document.getElementById('doodleCont').clientWidth;
+	canvas.height = document.getElementById('doodleCont').clientHeight;
   
-   clear();
+	clear();
 	myStopFunction();
 	Doodles=[];
 	DoodleReference = [];
@@ -59,8 +63,8 @@ function firstDraw()
     pen = ctx.createPattern(img,'repeat');
   }
   
-  ctx.strokeStyle = pen;//"#253A99";
-  ctx.fillStyle = pen;//"#253A99";
+  ctx.strokeStyle = pen;
+  ctx.fillStyle = pen;
   ctx.lineWidth=1.5;
   
   canvHeight = canvas.height;
@@ -71,18 +75,17 @@ function firstDraw()
   emitDoodle();
   
   logic();
-  //requestAnimationFrame(logic);
 }  
 
-this.clear=clear;
 //Clears the canvas
+this.clear=clear;
 function clear()
 {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 } 
 
-this.removeMouse=removeMouse;
 //Called when the mouse leaves the button
+this.removeMouse=removeMouse;
 function removeMouse()
 {
 	mouseOut=true;
@@ -90,52 +93,52 @@ function removeMouse()
 
 var myFunc;
 
-this.logic=logic;
 //Main Logic Loop for the script
+this.logic=logic;
 function logic() {
     myFunc = setTimeout(function() 
-			{
-	 
+		{
 		//If Mouse Removed
-			if (mouseOut && Doodles.length == 0)
+		if (mouseOut && Doodles.length == 0)
 		{
 			clear();
-			Doodles=[]; //Changed after commmit without test: could be problem.  Also update circuits to resize with div properly.
+			Doodles=[];
 			myStopFunction();
 			return;
 		}
-			requestAnimationFrame(logic);
-			clear();
-			move();
-			
-			
-			//Drawing stuff
-			ctx.strokeStyle = pen;//"#253A99";
-			ctx.fillStyle = pen;
-			for (var k = 0; k < Doodles.length; k++)
+		requestAnimationFrame(logic);
+		clear();
+		move();
+		
+		//Drawing stuff
+		ctx.strokeStyle = pen;
+		ctx.fillStyle = pen;
+		for (var k = 0; k < Doodles.length; k++)
+			{
+				//This right here is a beautiful few lines of code.
+				//I mean really.  Rotating the entire canvas to correctly position the current doodle's angle.
+				//"It never occurred to me to think of SPACE as the thing that was moving!"  -Scotty
+				ctx.save();
+				ctx.translate(Doodles[k].x, Doodles[k].y);
+				if (Doodles[k].directional)
 				{
-					//This right here is a beautiful few lines of code.
-					ctx.save();
-					ctx.translate(Doodles[k].x, Doodles[k].y);
-					if (Doodles[k].directional)
-					{
-						ctx.rotate(Math.atan(Doodles[k].vely/Doodles[k].velx) + (Math.PI/2));
-					}
-					ctx.scale(Doodles[k].scale, Doodles[k].scale);
-					Doodles[k].draw();
-					ctx.restore();
+					ctx.rotate(Math.atan(Doodles[k].vely/Doodles[k].velx) + (Math.PI/2));
 				}
-			
-			
-			}, 1000 / fps);
+				ctx.scale(Doodles[k].scale, Doodles[k].scale);
+				Doodles[k].draw();
+				ctx.restore();
+			}
+		}, 1000 / fps);
 }
 
+//Kill it.
 this.myStopFunction=myStopFunction;
 function myStopFunction()
 {
-clearTimeout(myFunc);
+	clearTimeout(myFunc);
 }
 
+//Move those doodles!
 this.move=move;
 function move()
 {
@@ -157,7 +160,7 @@ function move()
 	}
 }
 
-
+//Add a new doodle to the screen
 this.emitDoodle=emitDoodle;
 function emitDoodle()
 {
@@ -192,7 +195,15 @@ function emitDoodle()
 }
 
 
+
+
 //------------Doodles--------------
+//
+// This remaining enormous section manually draws the proper strokes for each doodle.
+// I converted my SVG doodles to canvas stroke paths with this tool:
+// http://www.professorcloud.com/svg-to-canvas/
+// And then just brought in the relevant paths.
+
 
 //Object to be edited for other Doodles
 this.defaultStub=defaultStub;

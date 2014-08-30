@@ -241,7 +241,7 @@ h2 {
 	font-family: 'Arial', sans-serif;
 	color:white;
 	padding:30px;
-	box-shadow: 0px 0px 0px 4pt white;
+	box-shadow: 0px 0px 0px 0pt white;
 	overflow: auto;
 	margin-bottom:50px;
 }

@@ -1,8 +1,14 @@
+/* 
+	Disclaimer to the following disclaimer:  If you are here looking for examples of my coding abilities, turn back now.
+	This is not the place to be.  Not even remotely.  Go look at anything else.  My Python code.  My other JS examples.  Maybe just go watch Netflix.
+	Just don't try and wade through the following pile of terrible logic and 3AM decision-making.  For your own sake.
+ */
+
 /*
 	Disclaimer:  This is the first Javascript I have ever written.
 	I am trying to be organized -as I am in any language- but the amount of refactoring is
 	already immense and my code is still small.  This may be incredibly messy and
-	not up to JS standards.  Apologies in advance.
+	not up to any par.  Apologies in advance.
 */
 
 /*
@@ -30,11 +36,11 @@
 		
 		Special thanks to Eric Moon for helping me remember how to generate noise in Photoshop for the pen effect
 */
+
+//TODO:  resize with Div?
+
 var circuits = new mainWrapper();
-
 function mainWrapper(){
-
-//var zed = new tempPoint(40, 50, 0);
 
 //Enumerating a direction list to reference
 var up = new direction(0,-1);
@@ -48,6 +54,7 @@ var upLeft = new direction(-1,-1);
 
 var Directions = [up, upRight, right, downRight, down, downLeft, left, upLeft];
 
+//Setting statistic probability through an array of ints
 // 0= continue, 1=turn w/o node, 2= turn and node
 var JunctionChoice = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2];
 var EndChoice = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
@@ -57,6 +64,7 @@ var Grid = [];
 var Paths = [];
 var Temps = [];
 
+//Other misc vars
 var canvas;
 var ctx; 
 var rand;
@@ -68,15 +76,14 @@ var tempy;
 var tempRandb;
 var tempx;
 var newDir;
-
-
+var counter=0;
 var gridSize = 45;
-
 var  pen;
+var mouseOut;
+var opaque;
 
-this.firstDraw = firstDraw;
- 
 //First method to load the canvas and initiate logic
+this.firstDraw = firstDraw;
 function firstDraw()
 {
 	canvas = document.getElementById('code');
@@ -84,22 +91,26 @@ function firstDraw()
 	canvas.width=canvas.clientHeight;
 	canvas.height = canvas.clientHeight;
 	mouseOut=false;
-  if (canvas.getContext)
-  {
-	 ctx = canvas.getContext('2d');
-  }
-  opaque=0;
-  
-  ctx.globalAlpha = 0;
-  
-   clear();
+	if (canvas.getContext)
+	{
+		ctx = canvas.getContext('2d');
+	}
+	//Reset everything
+	opaque=0;
+	ctx.globalAlpha = 0;
+	clear();
 	Paths=[];
 	Temps=[];
 	Grid=[];
-  //*2 to account for lines being cells too
-  //+gridSize to mod by 40
-  for (var gridx=0; gridx< canvas.width*2; gridx=gridx+gridSize)
-  {
+
+//The logic here works on the assumption that both end dots, and the lines between them count as blocks on the grid
+//So:
+//  O-----O-----O
+//takes up 5 horizontal grid spaces.  3 for the points and two for connecting edges
+//
+//The *2 accounts for this fact
+	for (var gridx=0; gridx< canvas.width*2; gridx=gridx+gridSize)
+	{
 		thisRow = [];
 		for (var gridy=0; gridy< canvas.height*2; gridy=gridy+gridSize)
 	   {
@@ -108,57 +119,49 @@ function firstDraw()
 			thisRow.push(cell);
 	   }
 		Grid.push(thisRow);
-  }
-  
-  var img = new Image();
-  img.src = 'Images/pen.png';
-  img.onload = function(){
+	}
 
-    // create pattern
-    pen = ctx.createPattern(img,'repeat');
-
-  }
+	var img = new Image();
+	img.src = 'Images/pen.png';
+	img.onload = function(){
+		pen = ctx.createPattern(img,'repeat');}
   
   canvHeight = canvas.height;
   canvWidth = canvas.width;
-  //Dark blue from homepage
-  ctx.strokeStyle = pen;//"#253A99";
-  ctx.fillStyle = pen;//"#253A99";
+  ctx.strokeStyle = pen;
+  ctx.fillStyle = pen;
   
-  requestAnimationFrame(logic); // start the first frame
-   //setTimeout(logic, 1000/200);
+  requestAnimationFrame(logic); //Use this rather than setTimeout or setInterval
 }  
 
-var mouseOut;
+//Function to catch removed mouse
 this.removeMouse = removeMouse;
 function removeMouse()
 {
-	//fade('code');
 	mouseOut=true;
 }
-var opaque;
+
 //Main Logic Loop for the script
 this.logic=logic;
 function logic()
 {
-		if (mouseOut)
-		{
-			opaque=0;
-			opacityWindDown();
-			return;
-		}
-		if (ctx.globalAlpha < 1.0)
-		{
-			ctx.globalAlpha =  ((ctx.globalAlpha*100)+2)/100;
-		}
-		//ctx.globalAlpha = 1.0;
-		clear();
-		move();
-		draw();
-		//setTimeout(logic, 1000/60);
-		requestAnimationFrame(logic); //Keeps the browser from locking up.  Remember this.
+	if (mouseOut)
+	{
+		opaque=0;
+		opacityWindDown();
+		return;
+	}
+	if (ctx.globalAlpha < 1.0)
+	{
+		ctx.globalAlpha =  ((ctx.globalAlpha*100)+2)/100;
+	}
+	clear();
+	move();
+	draw();
+	requestAnimationFrame(logic);
 }
 
+//Fade opacity
 this.opacityWindDown = opacityWindDown;
 function opacityWindDown()
 {
@@ -167,13 +170,13 @@ function opacityWindDown()
 	{
 		ctx.globalAlpha = (100-opaque)/100;
 		clear();
-		//document.write(ctx.globalAlpha + ", ");
 		draw();
 		requestAnimationFrame(opacityWindDown);
 	}
 		return;
 }
-  
+
+//Clears the canvas
 this.clear=clear;
 function clear()
 {
@@ -184,15 +187,13 @@ function clear()
 this.draw=draw;
 function draw()
 {
-	//Temporary lines for testing
-	ctx.strokeStyle = pen;
-   ctx.fillStyle = pen;
-	
-	//Not checked.  Manually ensure paths are at least 2 nodes
+ctx.strokeStyle = pen;
+ctx.fillStyle = pen;
+
+//Not checked.  Manually ensure paths are at least 2 nodes
 	for (var i = 0; i < Paths.length; i++)
 	{
-		Paths[i][0].drawNode(); //Draw first point
-	
+		Paths[i][0].drawNode();
 		for (var j = 1; j < Paths[i].length; j++)
 		{
 			Paths[i][j].drawNode();
@@ -203,7 +204,7 @@ function draw()
 			ctx.stroke();
 		}
 	}
-	
+
 	for (var k = 0; k < Temps.length; k++)
 	{
 		ctx.beginPath();
@@ -214,9 +215,9 @@ function draw()
 		ctx.stroke();
 	}
 }
-var counter=0;
-this.move=move;
+
 //Moves the temp points and runs all logic checks
+this.move=move;
 function move()
 {
 	for (var f = 0; f < Temps.length; f++)
@@ -227,12 +228,10 @@ function move()
 		{
 			junction(Temps[f]);
 		}
-		//document.write(Temps[f].x + " " + Temps[f].y + ", ");   TEST
 	}
 	
 	if (Temps.length < 4)
 	{
-		//counter=0;
 		do
 		{
 			passable=false;
@@ -242,15 +241,16 @@ function move()
 			tempx = tempRandb * gridSize;
 			
 		}
-		while((!Grid[tempRanda*2][tempRandb*2].isEmpty) );//&& !passable);
+		while((!Grid[tempRanda*2][tempRandb*2].isEmpty) );
 		
 		var tempz = new tempPoint(tempx, tempy, 0);
-		//tempz.changeDir(newDir);
 		changeDirection(tempz);
 		Temps.push(tempz);
 		counter++;
 	}
 }
+
+//Creates a temp point
 this.fakeTemp=fakeTemp;
 function fakeTemp(x,y)
 {
@@ -258,15 +258,13 @@ function fakeTemp(x,y)
 	this.y=y;
 }
 
-//X coord, Y coord, Boolean for Node
+//Path Point object
 this.pathPoint=pathPoint;
 function pathPoint(x,y,node)
 {
 	this.x=x;
 	this.y=y;
 	this.node=node;
-
-	
 	this.drawNode=drawNode;
 	function drawNode()
 	{
@@ -278,41 +276,32 @@ function pathPoint(x,y,node)
 			ctx.fill();
 		}		
 	}
-	
 	if((this.x/(gridSize/2)) < Grid.length && (this.y/(gridSize/2)) < Grid[0].length  && (this.x/(gridSize/2)) >= 0 && (this.y/(gridSize/2)) >= 0)
 			{
-				//document.write((this.x/(gridSize/2)) + " " + (this.y/(gridSize/2)) + ", ");
 				Grid[(this.x/(gridSize/2))][(this.y/(gridSize/2))].fill();
 			}
-	
-	
 }
 
-this.tempPoint=tempPoint;
 //TempPoint to track current movers
+this.tempPoint=tempPoint;
 function tempPoint(x,y, pathInder)
 {
 	this.x=x;
 	this.y=y;
 	//Set index to path about to be added
 	this.pathIndex=(Paths.length);
-	
 	var rand2 = Math.floor((Math.random()*8));
 	this.direction= Directions[rand2];
-
 	var newPath = [];
 	first = new pathPoint(this.x,this.y,true);
 	newPath.push(first);
 	Paths.push(newPath);
-	//this.moveBy();
-	
 	this.moveBy = moveBy;
 	function moveBy()
 		{
 			this.x = this.x + this.direction.x;
 			this.y = this.y + this.direction.y;
 		}
-	//fillSpace(this);
 	this.changeDir = changeDir;
 	function changeDir(direction)
 		{
@@ -320,34 +309,25 @@ function tempPoint(x,y, pathInder)
 		}
 }
 
-this.junction=junction;
 //Choice to make at grid intersection
+this.junction=junction;
 function junction(tempor)
 {
 
 	fillSpace(tempor);
-	
+
 	//10% chance to just end
 	if (Paths[tempor.pathIndex].length >= 2)
 	{
-		//Pick random 1-10
 		rand = Math.floor((Math.random()*10));
 		if (EndChoice[rand] == 0)
 		{
-			endPath(tempor); //Add probability here or this wont work
+			endPath(tempor);
 			return;
 		}
 	}
 	//randomly choose junction option
-	
 	rand = Math.floor((Math.random()*10));
-	
-	//Continue on
-	//if (JunctionChoice[rand] == 0)
-	//{	
-	//	return;
-	//}
-	//Turn w/o node
 	if (JunctionChoice[rand] == 1)
 	{
 		var node = new pathPoint(tempor.x, tempor.y, false);
@@ -367,6 +347,7 @@ function junction(tempor)
 	return;
 }
 
+//Count the spaces as filled
 this.fillSpace=fillSpace;
 function fillSpace(thisTemp)
 {
@@ -379,7 +360,6 @@ function fillSpace(thisTemp)
 				//document.write((this.x/(gridSize/2)) + " " + (this.y/(gridSize/2)) + ", ");
 				Grid[(numx)][(numy)].fill();
 			}
-			
 //Fill last line
 //Reverse direction to figure out previous space
 var backwards = new direction((thisTemp.direction.x * -1), (thisTemp.direction.y * -1))
@@ -390,6 +370,7 @@ if((numx+backwards.x) < Grid.length && (numy+backwards.y) < Grid[0].length  && (
 			}
 }
 
+//Change the current travel direction
 this.changeDirection=changeDirection;
 function changeDirection(temporar)
 {
@@ -407,15 +388,14 @@ function changeDirection(temporar)
 	return;
 }
 
-this.endPath=endPath;
 //Ends the current path
+this.endPath=endPath;
 function endPath(tempo)
 {
 	//Add final node circle to end of path
 	var lastNode = new pathPoint(tempo.x, tempo.y, true)
 	Paths[tempo.pathIndex].push(lastNode);
-	
-	//fillSpace(tempo);
+
 	//Remove temp from list of temps being updated
 	var i = Temps.indexOf(tempo);
 	if(i != -1) 
@@ -424,8 +404,8 @@ function endPath(tempo)
 	}
 }
 
-this.isOpenNeighbor=isOpenNeighbor;
 //Check to ensure node is not blocked
+this.isOpenNeighbor=isOpenNeighbor;
 function isOpenNeighbor(ryan, dirToTest)
 {
 	
@@ -448,8 +428,8 @@ function isOpenNeighbor(ryan, dirToTest)
 	return false;
 }
 
-this.generateDirectionList=generateDirectionList;
-//Generate Direction Choice List  //FINISH THIS
+//Generate Direction Choice List
+this.generateDirectionList=generateDirectionList; 
 function generateDirectionList(tempor)
 {
 	if (tempor.direction == null)
@@ -469,8 +449,8 @@ function generateDirectionList(tempor)
 	return newList2;
 }
 
-this.possDir=possDir;
 //Return possible new directions based on old direction
+this.possDir=possDir;
 function possDir(test)
 {
 
@@ -506,10 +486,9 @@ function possDir(test)
 	{
 		return [Directions[6],Directions[7],Directions[0]];
 	}
-	
-
 }
 
+//GridItem object for simplicity's sake  (too late)
 this.gridItem=gridItem;
 function gridItem()
 {
@@ -522,15 +501,11 @@ function gridItem()
 	}
 }
 
-this.direction=direction;
 //Direction to help enumerate
+this.direction=direction;
 function direction(x,y)
 {
 	this.x=x;
 	this.y=y;
 }
-
-
-
 };
-

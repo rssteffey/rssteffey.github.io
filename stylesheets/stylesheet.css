@@ -119,7 +119,7 @@ aside#sidebar {
   padding-left: 20px;
   min-height: 504px;
   float: right;
-  background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
+  background: transparent url(../Images/sidebar-bg.jpg) 0 0 no-repeat;
   font-size: 12px;
   line-height: 1.3;
 }
@@ -151,13 +151,13 @@ header a.button {
   position: absolute;
   right: 0;
   top: 0;
-  background: transparent url(../images/github-button.png) 0 0 no-repeat;
+  background: transparent url(/Images/github-button.png) 0 0 no-repeat;
 }
 aside a.button {
   width: 138px;
   padding-left: 64px;
   display: block;
-  background: transparent url(../images/download-button.png) 0 0 no-repeat;
+  background: transparent url(/Images/download-button.png) 0 0 no-repeat;
   margin-bottom: 20px;
   font-size: 21px;
 }

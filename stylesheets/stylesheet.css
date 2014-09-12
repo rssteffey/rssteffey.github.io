@@ -153,6 +153,13 @@ header a.button {
   top: 0;
   background: transparent url(/Images/github-button.png) 0 0 no-repeat;
 }
+
+header img.title{
+  position: absolute;
+  right: 20%;
+  top: 0;
+}
+
 aside a.button {
   width: 138px;
   padding-left: 64px;
@@ -446,6 +453,16 @@ footer a:hover {
     -webkit-border-radius: 5px;
     border-radius: 5px;
   }
+  
+  header img.title {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 10px;
+    position: relative;
+	right: 0;
+    top: 0;
+  }
+  
   header a.button small {
     font-size: 13px;
     display: inline;

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Echo(dog=true)
+title: Echo
 tags: dog humor
 comments: true
 ---

@@ -17,7 +17,7 @@ As such, I spent the weekend making my fridge tweet things.
 
 I have no clue why the idea came into being.  All I know is that last month, I suddenly decided to build a TwitterBot.
 
-!http://i.imgur.com/XHWbPbE.png(I do not endorse the use of heavy appliances as self-aware entities)!
+!http://i.imgur.com/foTzIz4.png(I do not endorse the use of heavy appliances as self-aware entities)!
 
 The plan: A webcam, some magnetic letters, and a Python OCR library.
 
@@ -25,7 +25,7 @@ I went to Walmart, bought a pack of alphabet fridge magnets, and set up my white
 
 The script only took a couple of hours to get down.  Most of the time was spent getting used to using OpenCV and understanding just how in the heck to use Twitter authorization tokens (Fun fact: I am still only 80% sure I could explain the Twitter API to someone).
 
-The code for the Tweeting process is incredibly straightforward (The example below will tweet whatever string "toTweet" contains.)  [Using the Twython library]
+The _*code*_ for the Tweeting process is incredibly straightforward. [Using the Twython library]
 
 <pre>
 <code>
@@ -45,7 +45,7 @@ What I still don't have a handle on is how to correctly and securely get those f
 For the purposes of this experiment (Throwaway Twitter account and one-person app), I manually grabbed the tokens and secrets from the Twitter Developer stats pages for my registered app and hardcoded them into the script.
 Twitter specifically says to not do this.  My hopes are that they really mean "Yeah... don't let other people find these numbers out", which I'm pretty sure applies to anything labelled "Secret" in a daily life context as well.  Regardless, as a certified rebel, I felt it was in the best interests of this project to ignore all advice and clunkily get the project up and running.
 
-Despite just now writing about it first, the Tweet functionality was actually the last stage of the project.  After awkwardly propping up a testing board between my trash-can and dresser, and getting my webcam appropriately angled, the work came down to taking an image, and creating a classifier to read the images taken by my webcam.  One of these things ended up being far more difficult than the other (And it isn't the one you'd probably expect).
+Despite just now writing about it first, the Tweet functionality was actually the last stage of the project.  After awkwardly propping up a testing board between my trash-can and dresser, and getting my webcam appropriately angled, the work came down to taking an image, and creating a classifier to read the text in that image.  One of these things ended up being far more difficult than the other (And it isn't the one you'd probably expect).
 
 My only past experiences with machine learning had been with Neural Networks (Restricted Boltzman machines for my 2013 summer, and a standard feed-forward net during an AI(Artifical) class last year).
 Since I was just doing simple contour classification on 26 possible classes, I decided to use a K-nearest neighbors classifier.  I'm not going to explain it here, mainly because there are far better <a href="http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank">examples</a> already available
@@ -87,8 +87,8 @@ colorblur = cv2.GaussianBlur(crop,(5,5),0)
 
 Okay, well so far, that's straightforward.
 
-- Crop to the relevant parts (the board area)
-- Blur
+- Crop to the relevant parts of the webcam's image (the board area)
+- Blur to remove any sharp or incorrect pixels
 
 And now we'll go through the small ranges of each possible color, to isolate only the letter parts of the image:
 
@@ -153,7 +153,7 @@ if avg[0] >= 45 and avg[0] < 95: #greens
 </pre>
 
 C, G, N, R, and X are the green letters in the magnet set we have, so my classifications are now narrowed to that range.  If my classification failed to fall under one of those options, I attempt the next closest result in the 'neighbors' list (created by the initial classification attempt)
-This conditional is repeated for each of the colors within my magnets.
+This conditional is repeated for each of the colors and their respective contour objects (With a contour's color being determined by the hue at it's center of mass).
 
 This change improved my output so drastically that I could hardly believe it:
 
@@ -164,23 +164,23 @@ I ran the script on my laptop for a week, and the results (with varying success 
 
 Many tweaks were made in this week.  Primarily adding a threshold for gibberish, as well as detection for when the lights were turned out at night.
 
-Unfortunately, the largest obstacle in this entire project was one that I never would have predicted.
+Unfortunately, the largest obstacle in this entire project was one that I never would have predicted:
 
 Logitech.
 
 My intention was to leave this script running permanently on the server in our kitchen.
-This was a foolish plan.  Neither of the two webcams at my disposal have supported drivers on the Windows Server platform.  Logitech released a statement announcing their lack of intention to support Windows Server 2003. (I attempted to relocate this article for this post, but this <a href="http://forums.logitech.com/t5/Webcams/Which-Logitech-Webcam-runs-an-Windows-Server-2003/td-p/320761" target="_blank">unofficial response</a> is the best I can do.)
+This was evidently a foolish plan.  Neither of the two webcams at my disposal have supported drivers on the Windows Server platform.  Logitech released a statement announcing their lack of intention to support Windows Server 2003. (I attempted to relocate this article for this post, but this <a href="http://forums.logitech.com/t5/Webcams/Which-Logitech-Webcam-runs-an-Windows-Server-2003/td-p/320761" target="_blank">unofficial response</a> is the best I can do.)
 
-Regardless, after a solid week of getting absolutely nowhere, I am ashamed to say that the machines won.  I ceased my attempts and returned to my regularly scheduled school assignments.
+I simply could not figure out a way to get the cameras functional on the existing server. And, needing my laptop back after a solid week of getting absolutely nowhere, I am ashamed to say that the machines won.  I ceased my attempts and returned to my regularly scheduled school assignments.
 
 Some may call this quitting.
 And I would be one of those people.
 
-But who knows?  I may have just helped stave off the machine revolution for a tiny bit longer...
+But who knows?  Maybe I just helped stave off the machine revolution for a tiny bit longer...
 
-!http://i.imgur.com/a2Qtjek.png(I do not endorse the use of heavy appliances as self-aware entities)!
+!http://i.imgur.com/a2Qtjek.png("Oh!  That?  Yeah that was me.  Speaking of which do you know where the knife block went?")!
 
 %{font-size:9pt}*For the sake of brevity, I neglected to mention that I also wrote a training program to provide the classifier's initial data associations.  Basically the trainer script takes the image, performs the image manipulations that I outlined above to get the contour objects, and then walks me through shape by shape, letting me enter the correct character. (Supervised learning)%
 
-%{font-size:9pt}**I plan on putting the full script for both training and recognition on Github. I just have to be sure all the authorization tokens have been scrubbed. This code is incredibly useless for anyone not using my apartment kitchen, since most is just hardcoded values tuned to the environment and camera angle, but it could be fun to look at I suppose.%
+%{font-size:9pt}**I plan on putting the full script for both training and recognition on Github. The code is incredibly useless for anyone not using my apartment kitchen, since most is just hardcoded values tuned to the environment and camera angle, but it could be handy for reference I suppose.%
 

@@ -128,16 +128,16 @@ contours, hierarchy = cv2.findContours(backtogray,cv2.RETR_TREE,cv2.CHAIN_APPROX
 Now here's where things got tricky.
 We have the contours, but we have to classify them.
 My first iteration disregarded letter color entirely.  I (naively) assumed that a static camera angle and distinct set of only 26 uniform characters would make detection pretty straightforward.
-All classifications were done from the same contour sets
+
 However, after moving my rig to the kitchen and integrating onto the fridge, my opinion shifted.
-As it turns out, deciphering a 640x480 resolution image from across the kitchen with tiny yellow letters in yellowish lighting on a slightly dirty yellowish fridge is tougher than first guess.
+As it turns out, deciphering a 640x480 resolution image from across the kitchen with tiny yellow letters in yellowish lighting on a slightly dirty yellowish fridge is tougher than I'd first guessed.
 
 !http://i.imgur.com/Vfk0ygB.png(I do not endorse the use of heavy appliances as self-aware entities)!
 
 So, I redesigned the contour classifications to be hue specific.
 
 Not wanting to uproot my entire process, I sacrificed some processing speed for ease of implementation (The webcam was only taking an image every minute, so the efficiency loss [within reason] doesn't affect the program)
-I read the initial contours as normal, and just changed my classifications after the fact to try and line up with associated letter colors
+I read the initial contours as before, and just changed my classifications after the fact to try and line up with associated letter colors
 
 <pre>
 <code>
@@ -152,7 +152,7 @@ if avg[0] >= 45 and avg[0] < 95: #greens
 </code>
 </pre>
 
-C, G, N, R, and X are the green letters in the magnet set we have, so my classifications are now narrowed to that range.  If I fail to classify as one of those options, the classifier attempts the next closest result in the 'neighbors' list (created by the initial classification attempt)
+C, G, N, R, and X are the green letters in the magnet set we have, so my classifications are now narrowed to that range.  If my classification failed to fall under one of those options, I attempt the next closest result in the 'neighbors' list (created by the initial classification attempt)
 This conditional is repeated for each of the colors within my magnets.
 
 This change improved my output so drastically that I could hardly believe it:
@@ -169,8 +169,9 @@ Unfortunately, the largest obstacle in this entire project was one that I never 
 Logitech.
 
 My intention was to leave this script running permanently on the server in our kitchen.
-This was a foolish plan.  Neither of the two webcams at my disposal have supported drivers on the Windows Server platform.  Logitech released a statement announcing their lack of intention to support Windows Server 2003. (I attempted to relocate this article for this post, but this <a href="http://forums.logitech.com/t5/Webcams/Which-Logitech-Webcam-runs-an-Windows-Server-2003/td-p/320761" target="_blank">unofficial response</a>) is the best I can do.
-Regardless, after a solid week of getting absolutely no where, I am ashamed to say that the machines won.  I quit my attempts and returned to my regularly scheduled school assignments.
+This was a foolish plan.  Neither of the two webcams at my disposal have supported drivers on the Windows Server platform.  Logitech released a statement announcing their lack of intention to support Windows Server 2003. (I attempted to relocate this article for this post, but this <a href="http://forums.logitech.com/t5/Webcams/Which-Logitech-Webcam-runs-an-Windows-Server-2003/td-p/320761" target="_blank">unofficial response</a> is the best I can do.)
+
+Regardless, after a solid week of getting absolutely nowhere, I am ashamed to say that the machines won.  I ceased my attempts and returned to my regularly scheduled school assignments.
 
 Some may call this quitting.
 And I would be one of those people.

@@ -72,16 +72,16 @@ model.train(samples,responses)
 
 Oh.  Well that went much easier than expected..  Let's see how we did.
 
-!http://i.imgur.com/7BJdJW4.png(I mean it....recognized three separate letters?...I guess that's good)!
+!http://i.imgur.com/DPB2j2Q.png(Ah ah ah.  You didn't say the magic word.  Ah ah ah.)!
 
-Oh yeah.  We probably need to tweak some image settings!
-I will spare you the details, just because they are truly a result of random tinkering.  I can only back up a few of my choices, and all else was purely brute force trial and error.
+Oh yeah.  We should probably take an image, find the contours, and match those contours with our model... right now we are literally doing nothing with the current image.
+
+I will spare you the details on image alterations, just because they are truly a result of random tinkering.  I can only back up a few of my choices and all else was purely trial and error.
 
 <pre>
 <code>
 crop = camera_capture[125:(125+height), 200:(200+width)]
 colorblur = cv2.GaussianBlur(crop,(5,5),0)
-
 </code>
 </pre>
 
@@ -103,7 +103,6 @@ boundaries = [
 	]
 
 mask = np.zeros((height,width,1), np.uint8)
-count=0
 # loop over the color boundaries
 for (lower, upper) in boundaries:
 	# create NumPy arrays from the boundaries
@@ -125,11 +124,13 @@ contours, hierarchy = cv2.findContours(backtogray,cv2.RETR_TREE,cv2.CHAIN_APPROX
 </code>
 </pre>
 
-Now here's where things got tricky.
-We have the contours, but we have to classify them.
+We have the contours, but we have to classify them. Now here's where things got tricky.
 My first iteration disregarded letter color entirely.  I (naively) assumed that a static camera angle and distinct set of only 26 uniform characters would make detection pretty straightforward.
 
-However, after moving my rig to the kitchen and integrating onto the fridge, my opinion shifted.
+!http://i.imgur.com/7BJdJW4.png(I mean it....recognized three separate letters?...I guess that's good)!
+
+After moving the rig in the kitchen and integrating onto the fridge, that opinion shifted with roughly the results shown there.
+
 As it turns out, deciphering a 640x480 resolution image from across the kitchen with tiny yellow letters in yellowish lighting on a slightly dirty yellowish fridge is tougher than I'd first guessed.
 
 !http://i.imgur.com/Vfk0ygB.png(I do not endorse the use of heavy appliances as self-aware entities)!
@@ -162,7 +163,7 @@ This change improved my output so drastically that I could hardly believe it:
 
 I ran the script on my laptop for a week, and the results (with varying success rates) can be seen here: <a href="https://twitter.com/ApartmentFridge" target="_blank">@ApartmentFridge on Twitter</a>
 
-Many tweaks were made in this week.  Primarily adding a threshold for gibberish, as well as detection for when the lights were turned out at night.
+Many tweaks were made in this week.  Primarily adding a maximum whitespace:character ratio to cut back on gibberish posting (while people stood in front of the fridge), as well as detection for when the lights were turned out at night (After tweeting 8 straight hours of jumble puzzles the first night running).
 
 Unfortunately, the largest obstacle in this entire project was one that I never would have predicted:
 

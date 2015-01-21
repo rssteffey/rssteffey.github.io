@@ -133,7 +133,7 @@ After moving the rig in the kitchen and integrating onto the fridge, that opinio
 
 As it turns out, deciphering a 640x480 resolution image from across the kitchen with tiny yellow letters in yellowish lighting on a slightly dirty yellowish fridge is tougher than I'd first guessed.
 
-!http://i.imgur.com/Vfk0ygB.png(I do not endorse the use of heavy appliances as self-aware entities)!
+!http://i.imgur.com/Vfk0ygB.png(Only partially inspired by Shawn's own twice-yearly visits to the Eye Doctor)!
 
 So, I redesigned the contour classifications to be hue specific.
 

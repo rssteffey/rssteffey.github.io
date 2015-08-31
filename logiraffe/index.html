@@ -1,17 +1,72 @@
 <head>
 
+<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Logiraffe</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
 <link href='http://fonts.googleapis.com/css?family=Boogaloo|Fjalla+One|Jura|Chelsea+Market' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="shawn.css">
+<link rel="stylesheet" href="css/scrolling.css">
+
 </head>
 
 
-<body style="margin:20; padding:0">
+<body class="loading" style="margin:0; padding:0">
 
-<h2>Logiraffe</h2>
+<div id="logoCircle"> <object class="logo" type="image/svg+xml" data="vectors/g.svg";>dots</object> </div>
 
-<p> Oh... well this is embarrassing. </p>
-<p> This page is still being constructed. </p>
-<p> I suggest hitting that nice big "Back" arrow in the top left </p>
+<div class="header">
 
+	<table class="headerTable">
+		<tr>
+			<td class="headerItem"> <a href="http://www.rssteffey.com/logiraffe/intro" target="_blank">Welcome</a> </td>
+			<td> <object class="separator" type="image/svg+xml" data="vectors/dots.svg";>dots</object> </td>
+			<td class="headerItem"> <a href="http://www.rssteffey.com/logiraffe/games" target="_blank">Games</a> </td>
+			<td> <object class="separator" type="image/svg+xml" data="vectors/dots.svg";>dots</object> </td>
+			<td class="logoItem">  </td>
+			<td> <object class="separator" type="image/svg+xml" data="vectors/dots.svg";>dots</object> </td>
+			<td class="headerItem"> <a href="http://www.rssteffey.com/logiraffe/about" target="_blank">About</a> </td>
+			<td> <object class="separator" type="image/svg+xml" data="vectors/dots.svg";>dots</object> </td>
+			<td class="headerItem"> <a href="http://www.rssteffey.com/logiraffe/contact" target="_blank">Contact</a> </td>
+		</tr>
+	</table>
 </div>
+
+
+
+<object class="background" type="image/svg+xml" data="vectors/JungleBackground.svg";>Jungle</object> 
+
+<div class="parallax">
+	<!--Left Canopy-->
+	<object class="canopyLeft" type="image/svg+xml" data="vectors/LeavesLeft.svg"; data-0-bottom-top=”margin-left:0px;” data-0-top-bottom=”margin-left:-1100%;>CanopyLeft</object> 
+
+	<!--Right Canopy-->
+	
+	<object class="canopyRight" type="image/svg+xml" data="vectors/LeavesRight.svg"; data-0-bottom-top=”margin-right:0px;” data-0-top-bottom=”margin-right:-1100%;>CanopyRight</object> 
+
+
+	<!--Giraffe Neck and head-->
+	<div class="giraffe">
+
+		<!--Head & start of neck-->
+		<div class="giraffeHead">
+			<object type="image/svg+xml" data="vectors/GiraffeHead.svg";>GiraffeHead</object> 
+		</div>
+
+		<!--<div class="giraffeNeck1">
+			<object type="image/svg+xml" data="vectors/GiraffeNeck.svg";>GiraffeNeck</object> 
+		</div>-->
+		
+	</div>
+	
+</div>
+
+<!-- Scripts for animation -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="js/skrollr.js"></script>
+<script src="js/_main.js"></script>
+
+
 </body>

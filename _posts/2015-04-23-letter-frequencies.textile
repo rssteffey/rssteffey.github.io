@@ -108,6 +108,6 @@ As soon as all of this graduation hubbub is over, I plan on trying the same scri
 
 Most importantly though, I'd like to find a more interesting visualization than a grid.  I'd really like to generate a <a href="http://en.wikipedia.org/wiki/Trie" target="_blank">trie</a>, and use that to show the spread of words from common roots, but I'm currently unsure how to go about visualizing that many branches...
 
-!http://i.imgur.com/IyFZ4UM.png(The bottom starts to look like the name field on an exam bubble sheet)!
+!http://i.imgur.com/IyFZ4UM.png(And/or an incredibly complex molecular structure)!
 
 Whatever the case -- if I take away anything from this project -- no matter the era or position in a word, 'Q' is not to be trusted.

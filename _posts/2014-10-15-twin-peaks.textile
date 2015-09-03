@@ -3,6 +3,7 @@ layout: post
 title: Twin Peaks
 tags: poem netflix
 comments: true
+description: In which Shawn watches through the 90's favorite show, and realizes he isn't cut out for the 90's.
 ---
 p=. *Shawn Watches Twin peaks*
 _A review, done by Haiku_

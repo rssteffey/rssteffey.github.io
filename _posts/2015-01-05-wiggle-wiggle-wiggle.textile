@@ -4,6 +4,7 @@ title: Under Da C#!
 tags: unity, game
 comments: true
 published: true
+description: In which Shawn sets the bait
 ---
 
 I'm spending this week of break learning how to use Unity, and so far it's going....swimmingly:

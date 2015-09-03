@@ -3,6 +3,7 @@ layout: post
 title: Now with RSS to follow RSS
 tags: programming project
 comments: true
+description: In which we find out that Shawn added an RSS feed!
 ---
 
 A large number of people have amazingly versatile last names that can be used in a plethora of puns.

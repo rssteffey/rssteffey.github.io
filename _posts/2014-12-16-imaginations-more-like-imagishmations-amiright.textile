@@ -3,6 +3,7 @@ layout: post
 title: Designing an Emotional Rollercoaster
 tags: disney art
 comments: true
+description: In which Mickey Mouse dangles a carrot before yanking the rug out.
 ---
 
 You've probably been thinking to yourself lately:

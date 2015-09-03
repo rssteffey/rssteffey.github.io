@@ -3,6 +3,7 @@ layout: post
 title: Leaping Out on a Jekyll Tether
 tags: jekyll blog
 comments: true
+Description: In which Shawn starts a blog!
 ---
 
 I am one of those individuals that can't stay motivated on a project unless I have a firm deadline coming up fast.

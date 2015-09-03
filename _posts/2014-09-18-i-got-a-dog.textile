@@ -3,6 +3,7 @@ layout: post
 title: Echo
 tags: dog humor
 comments: true
+description: In which Shawn writes a post about how he will never get the whole bed to himself again
 ---
 
 In the last week, I planned on accomplishing a myriad of tasks:  I had posters to be designed for ACM, videos to be edited for work, studying to get done for the Tuesday Exam Day of Death.

@@ -4,6 +4,7 @@ title: Honorificabilitudinitatibus
 tags: programming project
 comments: true
 published: true
+description: In which Shawn writes a post in attempts of impressing an employer
 ---
 
 This semester has been a relentless stream of projects and chaos, so posts have had to take a back seat for a while.

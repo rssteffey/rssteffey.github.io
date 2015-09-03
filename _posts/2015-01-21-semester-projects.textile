@@ -4,6 +4,7 @@ title: Contractual Obligation
 tags: unity, game
 comments: true
 published: true
+description: No one is going to post this link.  Why do I need a description here?
 ---
 
 If you've never read any of the masterpiece that is <a href="http://hyperboleandahalf.blogspot.com/" target="_blank">Hyperbole and a Half</a>, then I'm afraid you just sealed the next two hours of your time by clicking that link.  Both her blog and <a href="https://what-if.xkcd.com/" target="_blank">XKCD</a> are massive influences on the way I tend to write and present things here.

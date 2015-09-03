@@ -5,6 +5,7 @@ tags: birthday
 comments: true
 published: true
 description: In which the site is revived with celebratory news after a long absence.
+image: cake.png
 ---
 
 Happy Birthday!

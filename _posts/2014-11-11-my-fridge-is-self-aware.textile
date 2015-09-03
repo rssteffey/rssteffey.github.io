@@ -4,6 +4,7 @@ title: Sentient Fridge
 tags: programming project
 comments: true
 published: true
+description: In which Shawn's fridge becomes death, tweeter of words.
 ---
 
 Programming knowledge is a wondrous thing.

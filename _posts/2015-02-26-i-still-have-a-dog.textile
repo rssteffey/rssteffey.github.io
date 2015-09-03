@@ -4,6 +4,7 @@ title: Echo II
 tags: dog
 comments: true
 published: true
+description: In which Shawn deals with his choice to adopt a living caffeine molecule
 ---
 
 I'm afraid I made a mistake in a prior post.  I wrote an entire page about adopting Echo, but I kept referring to him as a dog.

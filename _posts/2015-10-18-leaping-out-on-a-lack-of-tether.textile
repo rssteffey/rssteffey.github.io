@@ -4,7 +4,7 @@ title: Fear is a Good Thing
 tags: humor, death
 comments: true
 published: true
-description: In which we realize Shawn will always be a wet blanket for fun things.
+description: In which we discuss the utility of fear and its applications towards not dying.
 image: fear.png
 ---
 

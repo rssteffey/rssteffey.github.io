@@ -1,7 +1,7 @@
 rssteffey.github.io
 ===================
 
-Personal site of Shawn Steffey
+Personal site of Shawn Steffey, viewable at http://www.rssteffey.com
 
 This is intended to be a site to showcase/store my work in Programming, Painting, and Video Graphics.
 Since I'll certainly have other uses for the site, I'm combining the video category with misc. since

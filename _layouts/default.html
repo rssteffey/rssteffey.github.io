@@ -186,10 +186,10 @@
       if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
         // Since ad blocks hide ads using CSS too
         ad.style.cssText = 'display:block !important'; 
-        ad.innerHTML = '<p>So I know ads suck and all... but if you could disable AdBlock for this site I would really appreciate it.  Maybe you\'ll even get a cool "Swat the Fly" interactive ad or something.  Who knows?? </p>';
+        ad.innerHTML = '<p style="underline:none">So I know ads suck and all... but if you could disable AdBlock for this site I would really appreciate it.  Maybe you\'ll even get a cool "Swat the Fly" interactive ad or something.  Who knows?? </p>';
       }
       
-    }, 2000); // The ad blocker check is performed 2 seconds after the page load 
+    }, 5000); // The ad blocker check is performed 2 seconds after the page load 
   }; 
   
 </script>

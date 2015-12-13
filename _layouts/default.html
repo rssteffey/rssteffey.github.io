@@ -156,7 +156,7 @@
 		  <a href="http://feeds.feedburner.com/SketchyBits" target="_blank"><img src="http://www.jobsnd.com/sites/all/modules/socialmedia/icons/levelten/glossy/32x32/rss.png"></img></a>
       
 		  
-        </aside>
+        
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- Sketchy Bits Sidebar -->
 			<ins class="adsbygoogle"
@@ -166,11 +166,33 @@
 				 data-ad-format="auto"></ins>
 		  <script>
 
+    </aside>
+
 (adsbygoogle = window.adsbygoogle || []).push({});
 
 </script>
       </div>
     </div>
+
+<!-- To beg people not to use Ad-block-->
+<script> 
+  // Run after all the page elements have loaded
+  window.onload = function(){ 
+    // This will take care of asynchronous Google ads
+    setTimeout(function() { 
+      // We are targeting the first banner ad of AdSense
+      var ad = document.querySelector("ins.adsbygoogle");
+      // If the ad contains no innerHTML, ad blockers are at work
+      if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+        // Since ad blocks hide ads using CSS too
+        ad.style.cssText = 'display:block !important'; 
+        ad.innerHTML = '<p>So I know ads suck and all... but if you could disable AdBlock for this site I would really appreciate it.  Maybe you\'ll even get a cool "Swat the Fly" interactive ad or something.  Who knows?? </p>';
+      }
+      
+    }, 2000); // The ad blocker check is performed 2 seconds after the page load 
+  }; 
+  
+</script>
 
   </body>
 </html>

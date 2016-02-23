@@ -1,4 +1,4 @@
 name: Sketchy Bits
-markdown: redcarpet
+markdown: kramdown
 description: Code, rambles, and doodles
 url: http://rssteffey.github.io

@@ -39,6 +39,8 @@
 
 //TODO:  resize with Div?
 
+//Testing authentication for Github
+
 var circuits = new mainWrapper();
 function mainWrapper(){
 

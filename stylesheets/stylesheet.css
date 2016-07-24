@@ -497,4 +497,18 @@ footer a:hover {
 @media only screen and (min-width: 480px) and (max-width: 767px) {}
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {}
+@media only screen and (min-width: 356px) and (max-width: 479px) {
+
+  img.title{
+    width: 320px;
+  }
+
+}
+
+/* OLD iPhone */
+@media only screen and (max-width: 355px) {
+
+  img.title{
+    width: 290px;
+  }
+}

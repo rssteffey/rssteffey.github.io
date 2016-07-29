@@ -2,3 +2,4 @@ name: Sketchy Bits
 markdown: kramdown
 description: Code, rambles, and doodles
 url: http://rssteffey.github.io
+permalink: pretty

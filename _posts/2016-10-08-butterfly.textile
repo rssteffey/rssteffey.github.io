@@ -1,21 +1,19 @@
 ---
 layout: post
-title: Butterfly Effect
+title: Fenceposts
 tags: humor, work, advice
 comments: true
 published: true
 description: In which Shawn explains how to smother things
-image: highpoints.png
+image: butterfly.png
 ---
 
-!http://imgur.com/bh5pDHM.gif("It flies off eventually.  Wait for it.")!
+!http://imgur.com/bh5pDHM.gif(It flies off eventually.  Wait for it.)!
 
 <br/>
 Around a month after I began working at my current job, while sitting through our morning scrum meeting, I noticed an unused whiteboard sitting by itself against a wall.  Meant as a scheduling planner, it had 4 separate calendar grids printed on it with spaces to fill in the month titles and days as needed.  It was a beautifully free piece of office equipment that had absolutely no justifiable use for our team.  So I stole it for us to use.
 
-I initially propped it up against the back wall where it would be largely out of our walking path.  At the time, we had four devs crammed into a room slightly larger than the average bathroom, so real estate was valuable.  I had no specific plan for how we would use it, I just knew our office needed something entertaining aside from the cubicle walls we had devoted to geekier comic strips.
-
-Sometime that week, before leaving work, I added a tiny doodle of a necktie to represent the important clients from California that had flown out to our office to visit that morning. The next day, someone drew a box of popcorn that we had snacked on all afternoon.  Purpose found.
+I initially propped it up against the back wall where it would be largely out of our walking path.  At the time, we had four devs crammed into a room slightly larger than the average bathroom, so real estate was valuable.  I had no specific plan for how we would use it, I just knew our office needed something entertaining aside from the cubicle walls we had devoted to geekier comic strips.  Sometime that week, before leaving work, I added a tiny doodle of a necktie to represent the important clients from California that had flown out to our office to visit that morning. The next day, someone drew a box of popcorn that we had snacked on all afternoon.  Purpose found.
 
 I happened to be reading “East of Eden” at the time, and in it discovered the quote that I included at the beginning of this post. It left a huge impression on me. It stood as a call to further appreciate life by ensuring there were more proverbial fenceposts to remember it by.  By preserving the pieces of the day that were unique, memory of that time feels less of a blur in retrospect.
 
@@ -29,7 +27,7 @@ Our team had never been tighter.  The calendar wasn’t the cause of this, for c
 
 <hr>
 
-We couldn’t always fill the day in.  If there was an especially intense crunch at work, or everyone was tired or in a grumpy mood, we’d forget.  Usually we’d come back and doodle something a few days later, but sometimes the day would end up blank- almost a starker reminder of that time period than a drawing could have been.
+We couldn’t _always_ fill the day in.  If there was an especially intense crunch at work, or everyone was tired or in a grumpy mood, we’d forget.  Usually we’d come back and doodle something a few days later, but sometimes the day would end up blank- almost a starker reminder of that time period than a drawing could have been.
 
 This gathered complaints from passers-by.  None serious, all joking and typically said with an air of awareness that there were more important things to do.  But they came all the same.
 
@@ -37,8 +35,8 @@ At first we placated them, taking time out of the schedule to fill in a half-rep
 
 Higher-up figures in the company dropped by often, encouraging continued use of the board as a method of team building.  Comments were made about attempting to export the exercise into our other offices.  Ideas of a calendar webcam floated about. Blank days were frowned upon - jokingly, and yet with the slightest tinge of seriousness.  There was an unstated pressure to always have a new scene on the board each morning.  And our enthusiasm suffocated.
 
-With every passing remark - each entirely innocent comment of “Looks like you’ve got some days to fill in!” - the odds of us drawing anything in those blank white boxes plummeted. As expectations and discussion rose of how to spread that drive to the rest of the employee base, the creative motivation of our team slowly and quietly suffocated.  On April 19th, the board saw its last doodle.
+With every passing remark, each entirely innocent comment of _“Looks like you’ve got some days to fill in!”_, the odds of us drawing anything in those blank white boxes plummeted. As expectations and discussion rose of how to spread that drive to the rest of the employee base, the creative motivation of our team slowly and quietly suffocated.  On April 19th, the board saw its last doodle.
 
-The entire thing is largely forgotten now. We’ve found other - less public - outlets to have fun.  The whiteboard sits unnoticed on the floor of our office, wedged between the backs of two desks, hidden from sight of all but my corner of the room, faded illustrations from the final 4 month span still visible.
+The entire thing is largely forgotten now. We’ve found other, less public, outlets to have fun.  The whiteboard sits unnoticed on the floor of our office, wedged between the backs of two desks, hidden from sight of all but my corner of the room, faded illustrations from the final 4 month span still visible.
 
-!http://imgur.com/e3zuOtf.png("Pin this image")!
+!http://imgur.com/e3zuOtf.png(Pin this image)!

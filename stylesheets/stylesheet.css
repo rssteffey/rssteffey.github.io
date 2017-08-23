@@ -367,6 +367,45 @@ footer a:hover {
   color: #444;
 }
 
+/* Reference tooltips, stolen shamelessly from XKCD WhatIf */
+
+.ref {
+    position: relative;
+    vertical-align: baseline;
+   }
+
+.refnum {
+    position: relative;
+    left: 2px;
+    bottom: 1ex;
+    font-family: 'Architects Daughter', Verdana, sans-serif;
+    color: #2879d0;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.refnum:hover {
+	color: #2268b2;
+}
+
+.refbody {
+    font-family: Verdana, sans-serif;
+    font-size: .7em;
+    line-height: 1.1;
+    display: block;
+    min-width: 20em;
+    position: absolute;
+    left: 25px;
+    bottom: 5px ;
+    border: 1px solid;
+    padding: 5px;
+    background-color: #fff;
+    word-wrap: break-word;
+    z-index: 9999;
+    overflow: auto;
+}
+
 /* MISC */
 .clearfix:after {
   clear: both;

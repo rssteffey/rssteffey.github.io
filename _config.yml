@@ -3,3 +3,4 @@ markdown: kramdown
 description: Code, rambles, and doodles
 url: http://www.rssteffey.com
 permalink: /:year/:month/:title
+future: true

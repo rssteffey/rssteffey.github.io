@@ -88,6 +88,32 @@ img {
 	font-family: 'Fjalla One', sans-serif;
 }
 
+.wab_container{
+	width: 100%;
+}
+
+.wab
+{
+	position: absolute;
+	z-index:5005;
+	left: 0;
+	right: 0;
+	top: 450px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wab img{
+	width: 300px;
+}
+
+.wab img:hover{
+	width: 330px;
+	margin-left: -15px;
+	margin-top: -5px;
+}
+
 .bground
 {
 	position:absolute;

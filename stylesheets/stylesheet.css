@@ -406,6 +406,10 @@ footer a:hover {
     overflow: auto;
 }
 
+.refbody.small{
+  min-width: 6em;
+}
+
 /* MISC */
 .clearfix:after {
   clear: both;

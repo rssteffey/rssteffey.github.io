@@ -1,6 +1,7 @@
+theme: jekyll-theme-cayman
 name: Sketchy Bits
-markdown: kramdown
-description: Code, rambles, and doodles
-url: http://www.rssteffey.com
+baseurl: "/blog"
+production_url : http://rssteffey.github.io/blog
+BASE_PATH : http://rssteffey.com/blog
 permalink: /:year/:month/:title
 future: true

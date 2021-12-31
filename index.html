@@ -1,106 +1,266 @@
-<!DOCTYPE html>
 <html>
 
+<!--
+  You sneaky web dev you.
+
+  Well as long as you're poking around, here are some fun things to do:
+
+  This site has seasonal colors!  But it's unlikely you'd notice in normal use; If you wanna try them out now, run
+    swapSeason("christmas");
+  or whatever theme you'd like to use in place of Christmas.
+  Possible themes are: "summer", "winter", "xmas", "shawn", "new_years", "nautical", 
+
+
+  The starry descending background is made using Three.js
+  It was heavily inspired by the return-to-earth scene at the apex of EPCOT's Spaceship Earth (The ride inside the golf ball)
+  This particular implementation of it is almost certainly less optimized than it should be - like most graphics projects Shawn makes
+
+-->
+
+
 <head>
+	<title>Shawn Steffey</title>
 
-<title>Shawn Steffey</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
 
-<link href='http://fonts.googleapis.com/css?family=Boogaloo|Fjalla+One|Jura|Chelsea+Market' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="shawn.css">
+	<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Josefin+Sans|Raleway|Roboto:300" rel="stylesheet">
+	<!-- Newest -->
+	<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cherry+Cream+Soda&family=Gruppo&family=Inconsolata:wght@305&family=Lalezar&family=Lexend+Peta&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Inconsolata:wght@305&family=Lalezar&family=Noto+Serif&family=Rokkitt:wght@200&display=swap" rel="stylesheet">
 
-<link rel="icon" 
-      type="image/x-icon" 
-      href="/Images/favicon.ico">
+	<script src="https://use.fontawesome.com/35fb755f2d.js"></script>
 
-<script src="https://use.fontawesome.com/be14366987.js"></script>
+</head>
+<body>
+	<div id="grand_and_miraculous" class="header_bground"></div>
+	<div class="body_wrapper">
+		<div class="clear_space thirty_perc"></div>
+		<div id="header">
+				<h1>Shawn Steffey</h1>
+				
+				<div id="header_links">
+					<a class="about_link">About</a>
+					<a class="projects_link">Projects</a>
+					<a href="/blog">Blog</a>
+					<a class="contact_link">Contact</a>
+				</div>
+				
+		</div>
+		<div class="clear_space fifty_perc"></div>
+		<div id = "return_to_earth" class="return_to_earth"></div>
+		<div id = "header_spacer"></div>
 
-<script type="text/javascript" src="test1.js"> </script>
-<script type="text/javascript" src="doodle.js"> </script>
-<script type="text/javascript" src="art.js"> </script>
+		
 
+		<!-- Shawn is interesting! -->
+		<div id="about" class="about_section toggle_block ">
+			<a class="anchor" id="about_anchor"></a>
+			<h2 class="header_lined">About Shawn</h2>
+			<div class="dots_container">
+				<div class = "dots_logo">
+					<span class="dot summer_color_1"></span>
+					<span class="dot summer_color_2"></span>
+					<span class="dot summer_color_3"></span>
+					<span class="dot summer_color_4"></span>
+					<span class="dot summer_color_5"></span>
+				</div>
+			</div>
+			<div class="about_content">
+				<img src="img/shawn.png"/>
+				<!-- <div class="shawn_pic"></div> -->
+				<div class="about_text">
+					<p>
+						Shawn makes things! <br/>This site exists to document those things.
+					</p>
+					<br/>
+					<p>
+						During the day, he makes PHP applications for Vanderbilt Medical Center, with a smattering of Javascript, API design, and various other backend things.
+					</p>
+					<br/>
+					<p>
+						In his free time, those things are built with whatever tools/scraps needed.
+						Recent projects include a multiplayer word-based party game, 
+						a slot machine designed with Unity (built from scraps of an old desk), 
+						and even this website.
+					</p>
+					<br/>
+					<p>
+						Located just south of Nashville, Shawn lives with his wife, dog, and looming omnipresent digital oversight.
+						(Alexandria, Echo, and Alexa - respectively)
+					</p>
+				</div>
+				
+			</div>
+		</div>
 
+		<!-- Shawn makes things! -->
+		<div id="projects" class="projects_section">
+			<a class="anchor" id="projects_anchor"></a>
+			<h2 class="header_lined">Projects</h2>
+			<div class="dots_container">
+				<div class = "dots_logo">
+					<span class="dot summer_color_1"></span>
+					<span class="dot summer_color_2"></span>
+					<span class="dot summer_color_3"></span>
+					<span class="dot summer_color_4"></span>
+					<span class="dot summer_color_5"></span>
+				</div>
+			</div>
+			<div class="projects_list">
+				<div class="projects_block summer_color_1 centerized">
+					<div class="project_image">
+						<img src= "img/projects/wab.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Wordabeasts</h3>
+						<p>Fast-paced word game for 2-8 players. Built in Unity with a Node.js and websocket backend to allow player input from mobile devices.</p>
+						
+						<a class="learn_more" target="_blank" href="https://store.steampowered.com/app/668190/Wordabeasts/">Wordabeasts on Steam</a>
+						<a class="learn_more" target="_blank" href="http://www.logiraffe.com/">See more games by Logiraffe Studios</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_2 centerized">
+					<div class="project_image">
+						<img src= "img/projects/tron.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Daft Punk DJs</h3>
+						<p>A 4-monitor Unity app to simulate a live DJ booth for a TRON-themed party</p>
+						<a class="learn_more" target="_blank" href="shawnsteffey.com">Read about the design process</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_3 centerized">
+					<div class="project_image">
+						<img src= "img/projects/slots.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Slot Machine</h3>
+						<p>Custom game slot machine designed for a party. Game designed with Unity (C#).
+							Guest badge QR code scanning keeps track of finances via a webcam and remote API.
+						</p>
+						<a class="learn_more" target="_blank" href="https://hahaha.ineedtowritethis.com">Watch a video about it</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_4 centerized">
+					<div class="project_image">
+						<img src= "img/projects/barcade.png"/>
+					</div>
+					<div class="project_desc">
+						<h3 style="font-size: 2.3em;">Lake House Arcade</h3>
+						<p>Custom arcade machine built as a family present. Designed to be nautical, yet modern.</p>
+						<a class="learn_more" target="_blank" href="https://hahaha.ineedtowritethis.com">Read about how I made it</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_5 centerized">
+					<div class="project_image">
+						<img src= "img/projects/wave.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Wave</h3>
+						<p>Short, atmospheric experience, created during a 72hr Ludum Dare game jam</p>
+						<a class="learn_more" target="_blank" href="https://www.youtube.com/watch?v=FA4rYGR6hxI">Watch the Trailer</a>
+						<br/>
+						<a class="learn_more" target="_blank" href="https://logiraffe.itch.io/ld39">Play for free on itch.io</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_1 centerized">
+					<div class="project_image">
+						<img src= "img/projects/fridge.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Tweeting Fridge</h3>
+						<p>Shawn once had an idea for a fridge that tweeted magnetic letters</p>
+						
+						<a class="learn_more" target="_blank" href="https://twitter.com/ApartmentFridge">See the questionable results</a>
+						<a class="learn_more" target="_blank" href="http://www.rssteffey.com/2014/11/my-fridge-is-self-aware">Or a *very* old blog on how I did it</a>
+					</div>
+				</div>
+				<span class="panel_edge"></span>
+				<div class="projects_block summer_color_2 centerized">
+					<div class="project_image">
+						<img src= "img/projects/art.png"/>
+					</div>
+					<div class="project_desc">
+						<h3>Art</h3>
+						<p>Shawn draws sometimes!</p>
+						<a class="learn_more" target="_blank" href="https://www.youtube.com/watch?v=FA4rYGR6hxI">See my ArtStation</a>
+						<br/>
+						<a class="learn_more" target="_blank" href="http://steffeystudios.imagekind.com/">Buy a very very old print</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<!-- Shawn writes things! -->
+		<div id="contact" class="contact_section">
+			<a class="anchor" id="contact_anchor"></a>
+			<h2 class="header_lined">Contact</h2>
+			<div class="dots_container">
+				<div class = "dots_logo">
+					<span class="dot summer_color_1"></span>
+					<span class="dot summer_color_2"></span>
+					<span class="dot summer_color_3"></span>
+					<span class="dot summer_color_4"></span>
+					<span class="dot summer_color_5"></span>
+				</div>
+			</div>
+			<img alt="rssteffey at gmail" src="img/email.png" class="email"></img>
+			<div class="icon-row social">
+				<a href="https://www.linkedin.com/in/rssteffey/" target="new" class="summer_color_text_1" alt="LinkedIn"><i class="fa fa-linkedin"></i></a>
+				<a href="https://github.com/rssteffey" target="new" class="summer_color_text_2" alt="Github"><i class="fa fa-github"></i></a>
+				<a href="https://www.instagram.com/steffeystudios" target="new" class="summer_color_text_3" alt="Instagram"><i class="fa fa-instagram"></i></a>
+				<a href="https://twitter.com/steffeystudios" target="new" class="summer_color_text_4" alt="Twitter"><i class="fa fa-twitter"></i></a>
+				<a href="https://open.spotify.com/user/122880200" target="new" class="summer_color_text_5" alt="Spotify"><i class="fa fa-spotify"></i></a>
+			</div>
+			
+		</div>
+	</div>
 
-  ga('create', 'UA-38933561-2', 'auto');
-  ga('send', 'pageview');
+	
+<!-- Shaders for starfield -->
+
+<script type="x-shader/x-vertex" id="vertexshader">
+
+	attribute float scale;
+	attribute vec4 color;
+
+	varying vec4 color_point;
+
+	void main() {
+
+		vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+		gl_PointSize = scale * ( 300.0 / - mvPosition.z );
+
+		gl_Position = projectionMatrix * mvPosition;
+
+		color_point = color;
+
+	}
 
 </script>
 
+<script type="x-shader/x-fragment" id="fragmentshader">
+	varying vec4 color_point;
 
+	void main() {
 
-</head>
+		if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
 
+		gl_FragColor = vec4( color_point);
 
-<body>
-<div class="main"> <h1>Shawn Steffey</h1> </div>
+	}
 
-<!--<img src="Images/construct.png" style="position:absolute; left:50%; top:50%; margin-left:-200px; z-index:40000">-->
-
-
-<!-- Code Button-->
-<a class="boxed" href="https://github.com/rssteffey" target="_blank" style=" left: 25%;" onmouseOver="circuits.firstDraw()" onmouseOut="circuits.removeMouse()";>
-	Code
-</a>
-
-<!-- Art Button-->
-<a class="boxed" href="Construction.html" style=" left: 45%;" onmouseOver="arty.init()" onmouseOut="arty.mouseout()";>	
-	Design
-</a>
-
-
-<!-- Other Button-->
-<a class="boxed" href="blog.html" style=" left: 65%;" onmouseOver="doodler.firstDraw()" onmouseOut="doodler.removeMouse()";>
-	Blog
-</a>
-
-<!-- Wordabeasts Button-->
-<div class="wab_container">
-<div class="wab" onclick="window.location='http://store.steampowered.com/app/668190/Wordabeasts/'";>  
-  <img src="http://wordabeasts.com/img/logo.png"/>
-</div>
-</div>
-
-<!-- Grid image -->
-<div id="coder" class="bground" style="width:39%; background-image: url('Images/grid_white.jpg'); z-index:-51; position:absolute; left:0;">
-<canvas id="code" style="z-index:-10; width:100%; height:100%;"></canvas>
-</div>
-
-<!-- Canvas image -->
-<div class="bground" style="width:60%; background-image: url('Images/canvas_white.jpg'); z-index:-52;">
-</div>
-
-<!-- Art Splooshes Canvas -->
-<div id="arts" style="width:100%; z-index:-37; position:absolute; left:0;">
-<canvas id="artCanvas" style="z-index:-7; width:100%; height:100%;"></canvas>
-</div>
-
-<!-- Lined image -->
-<div id="doodleCont" class="bground" style="width:40%; background-image: url('Images/line_white.jpg'); position:absolute; right:0; z-index:-53;">
-<canvas id="doodle" style="z-index:-9; width:100%; height:100%;"></canvas>
-</div>
-
-<!-- Edge1 -->
-<div class="bgroundRip" style="left: 39%; width:50px; background-image: url('Images/ripleft.png'); z-index:-40; margin-left: -42px;">
-</div
-
-<!-- Edge2 -->
-<div class="bgroundRip" style="left: 60%; width:50px; background-image: url('Images/ripright.png'); z-index:-40;">
-</div
-
-
-<!-- About Me -->
-<div class="wrapper">
-	<div style="position:absolute; right:20px; bottom:20px; width: 100px; height: 100px;">
-		<a href="Bio.html"><img src="Images/aboutFace.png" onmouseover="this.src='Images/aboutFaceHover.png'" onmouseout="this.src='Images/aboutFace.png'" style="width:100%; height:100%;"> </a>
-	</div>
-</div>
-
-<div class="centerBox"><div class="footer"> <i class="fa fa-envelope" aria-hidden="true"></i> rssteffey@gmail.com &nbsp &nbsp &nbsp  <a href="https://twitter.com/SteffeyStudios" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> @SteffeyStudios </a> </div></div>
-
+</script>
+	<script src="js/index.js"></script>
+	<script src="js/elevator.min.js"></script>
+	<script src="js/se.js"></script>
 </body>
 </html>

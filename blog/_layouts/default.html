@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <link href='http://rssteffey.github.io/feed.xml' rel='alternate' type='application/atom+xml'>
+    <title> {{ page.title }} </title>
+
+    <!-- Twitter and Slack link previews -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@SteffeyStudios">
+    <meta name="twitter:creator" content="@SteffeyStudios">
+    <meta property="og:type"  content="website" />
+
+    {% if page.title %}
+      <meta name="twitter:title" content="{{ page.title }}">
+      <meta property="og:title"  content="{{ page.title }}" />
+    {% else %}
+      <meta name="twitter:title" content="{{ site.title }}">
+      <meta property="og:title"  content="{{ site.title }}" />
+    {% endif %}
+    {% if page.url %}
+      <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+      <meta property="og:url"  content="{{ site.url }}{{ page.url }}" />
+    {% endif %}
+    {% if page.description %}
+      <meta name="twitter:description" content="{{ page.description }}">
+      <meta property="og:description"  content="{{ page.description }}" />
+    {% else %}
+      <meta name="twitter:description" content="{{ site.description }}">
+      <meta property="og:description"  content="{{ site.description }}" />
+    {% endif %}
+    {% if page.image %}
+      <meta name="twitter:image" content="{{ site.url }}/Images/previews/{{ page.image }}">
+      <meta property="og:image"  content="{{ site.url }}/Images/previews/{{ page.image }}" />
+    {% else %}
+      <meta name="twitter:image" content="{{ site.url }}/Images/previews/rawr.png">
+      <meta property="og:image"  content="{{ site.url }}/Images/previews/rawr.png" />
+    {% endif %}
+	
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38933561-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+  jQuery.noConflict();
+  jQuery(function() {
+	jQuery(".refbody").hide();
+	jQuery(".refnum").click(function(event) {
+	  jQuery(this.nextSibling).toggle();
+	  event.stopPropagation();
+	});
+	jQuery("body").click(function(event) {
+	  jQuery(".refbody").hide();
+	});
+  });
+</script>
+
+
+  </head>
+
+  <body>
+    <!--Facebook script -->
+      <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+    <header>
+      <div class="inner" id="titleArea">
+        <h1> <a href="/blog">Sketchy Bits</a></h1>
+        <h2>A Blog of Code, Art, and General Doodlings</h2>
+        <!--<a href="/index.html" class="button"><small>Return to the</small>Homepage</a>-->
+		<img class="title" src="/Images/plane.png" height="112" width="354" alt="Wheeeeee"></img>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          {{ content }}
+
+        </section>
+
+        <aside id="sidebar">
+		  
+		  
+		  <p class="repo-owner" id="bioRand">Shawn is a Software Developer in Franklin, TN, and thinks you should get a browser capable of Javascript because this bio would be much better if you did.</p>
+		  <!-- Randomize Bio text -->
+		  <script type="text/javascript">
+				function text() {
+				};
+				text = new text();
+				number = 0;
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, does an excellent job of pretending to know about sports, and can talk for hours (assuming the topic is 'Pointless EPCOT Trivia')"
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, occasionally knows what he's talking about on certain subjects, and loves hot green tea."
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, enjoys dinosaurs more than the average 5 year old, and spends entirely too much time deciding what to do with his time."
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, writes often in the 3rd person, and goes through LaCroix like he lives in Portland"
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, doodles on notes entirely too often, and recently found a simple way to randomize static site text through Javascript."
+				text[number++] = "Shawn is a Software Developer in Nashville, TN, eats entirely too many tortillas, and highly appreciates puns."
+				//Expandable :D
+				increment = Math.floor(Math.random() * number);
+				
+				var bio = document.getElementById('bioRand');
+				bio.innerHTML=(text[increment]);
+		  </script>
+		  
+		  <p>I can be contacted at<br>rssteffey@gmail.com<br></p>
+		  
+		  <p>Visit my homepage for art and code and stuff<a href="/index.html"> here</a>! </p>
+		  
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using a modified version of the <a href="https://github.com/jasonlong/architect-theme">Architect Theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+		  
+		  
+      <!--Twitter-->
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SteffeyStudios">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <br/>
+      
+      <!-- Share Button -->
+         <div class="fb-share-button" 
+             data-href="{{ site.url }}{{ page.url }}" 
+             data-layout="button">
+         </div>
+      <br/>
+      <!--Feedburner-->
+		  <a href="http://feeds.feedburner.com/SketchyBits" target="_blank"><img src="https://icons.iconarchive.com/icons/tatice/cristal-intense/32/RSS-icon.png"></img></a>
+      
+		  <br/>
+      <br/>
+      <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="background:none">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="http://i.imgur.com/mR9roWM.png" border="0" name="submit" alt="Love me" width="200px">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>-->
+
+<!-- Google Ads
+      <br/>
+      <br/>
+        
+  		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-4469619793472936"
+				 data-ad-slot="6672692603"
+				 data-ad-format="auto"></ins>
+  		<script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script> 
+-->
+    </aside>
+      </div>
+    </div>
+
+<!-- To beg people not to use Ad-block
+<script> 
+  // Run after all the page elements have loaded
+  window.onload = function(){ 
+    // This will take care of asynchronous Google ads
+    setTimeout(function() { 
+      // We are targeting the first banner ad of AdSense
+      var ad = document.querySelector("ins.adsbygoogle");
+      // If the ad contains no innerHTML, ad blockers are at work
+      if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+        // Since ad blocks hide ads using CSS too
+        ad.style.cssText = 'display:block !important'; 
+        ad.innerHTML = '<p style="underline:none">So I know ads suck and all... but if you could disable AdBlock for this site I would really appreciate it.  Maybe you\'ll even get a cool "Swat the Fly" interactive ad or something.  Who knows?? </p>';
+      }
+      
+    }, 5000); // The ad blocker check is performed 2 seconds after the page load 
+  }; 
+  
+</script> 
+-->
+
+  </body>
+</html>

@@ -1,5 +1,5 @@
 //State
-var theme = "summer"; //app default, until date overrides
+var theme = "default"; //app default, until date overrides
 
 //init elevator.js Elevators
 //(I realize this library is probably overkill, but I don't wanna animate scrolling right now)
@@ -24,7 +24,8 @@ window.onload = function() {
         verticalPadding: 60,
     });
 
-    //Apply correct light overlays
+    //Apply correct theme and light adjustment
+    chooseCurrentSeason();
     applyLightOverlay();
 }
   
@@ -60,13 +61,20 @@ function myFunction() {
 
 // Define colors that require light overlays here
 var lightArray = [
+    "default_color_1",
+    "default_color_2",
+    "default_color_5",
+    "spring_color_1",
     "summer_color_1",
     "summer_color_2",
     "autumn_color_1",
     "autumn_color_2",
     "winter_color_1",
-    "winter_color_4",
     "shawn_color_1",
+    "nye_color_2",
+    "nye_color_5",
+    "halloween_color_5",
+    "halloween_color_2",
     "xmas_color_1",
     "xmas_color_2",
     "xmas_color_5"
@@ -101,5 +109,59 @@ function swapSeason(newTheme) {
     }
     theme = newTheme;
     applyLightOverlay();
+}
+
+function chooseCurrentSeason(){
+  var today = new Date();
+  var mon = today.getMonth() + 1; //Normalize to human-indexed
+  var day = today.getDate();
+  
+  console.log("Month: " + mon + "  Day: " + day)
+
+  // ----- One-day cases first -----
+  // Birfday
+  if(mon == 6 && day == 30){
+    swapSeason("shawn");
+  } 
+  // EPCOT Opening Day
+  else if(mon == 10 && day == 1){
+    swapSeason("shawn");
+  }
+  // Halloween
+  else if(mon == 10 && day >= 21){
+    swapSeason("halloween");
+  }
+
+  // UT GameDays (Saturdays)
+  else if(mon >= 9 && mon <= 11 && today.getDay() == 6){
+    swapSeason("ut");
+  }
+
+  // Christmas Season
+  else if(mon == 12 && day >= 13 && day <= 27){
+    swapSeason("xmas");
+  }
+
+  // ----- Seasons -----
+  // Winter
+  else if( mon == 12  || mon <= 2){
+    swapSeason("winter");
+  }
+
+  // Spring
+  else if( mon >= 3 && mon <= 5){
+    swapSeason("spring");
+  }
+
+  // Summer
+  else if( mon >= 6 && mon <= 9){
+    swapSeason("summer");
+  }
+
+  // Summer
+  else if( mon >= 10 ){
+    swapSeason("autumn");
+  }
+  
 }
 

@@ -230,7 +230,6 @@ canvas{
 .about_section{
 	min-height: 400px;
 	background: rgb(0,0,0);
-	padding-bottom: 5em;
 }
 
 .about_section img{
@@ -246,6 +245,7 @@ canvas{
 
 .about_text{
 	padding-top: 2em;
+	margin: 0 1em 3em 1em
 }
 
 
@@ -429,7 +429,39 @@ img.email{
 	color: #ffffff;
 }
 
-/* Summer (and site default) */
+/* Default (was going to be summer, but the flashing update is distracting*/
+.default_color_1{
+	background-color: #696969;
+}
+.default_color_text_1{
+	color: #696969;
+}
+.default_color_2{
+	background-color: #4d4d4d;
+}
+.default_color_text_2{
+	color: #4d4d4d;
+}
+.default_color_3{
+	background-color: #808080;
+}
+.default_color_text_3{
+	color: #808080;
+}
+.default_color_4{
+	background-color: #777777;
+}
+.default_color_text_4{
+	color: #777777;
+}
+.default_color_5{
+	background-color: #3a3a3a;
+}
+.default_color_text_5{
+	color: #3a3a3a;
+}
+
+/* Summer */
 .summer_color_1{
 	background-color: #540D6E;
 }
@@ -465,28 +497,28 @@ img.email{
 
 /* Spring */
 .spring_color_1{
-	background-color: #DB2763;
+	background-color: #d84a79;
 }
 .spring_color_text_1{
-	color: #DB2763;
+	color: #d84a79;
 }
 .spring_color_2{
-	background-color: #B0DB43;
+	background-color: #afc96d;
 }
 .spring_color_text_2{
-	color: #B0DB43;
+	color: #afc96d;
 }
 .spring_color_3{
-	background-color: #BCE7FD;
+	background-color: #97c6dd;
 }
 .spring_color_text_3{
-	color: #BCE7FD;
+	color: #97c6dd;
 }
 .spring_color_4{
-	background-color: #12EAEA;
+	background-color: #5cc5c5;
 }
 .spring_color_text_4{
-	color: #12EAEA;
+	color: #5cc5c5;
 }
 .spring_color_5{
 	background-color: #C492B1;
@@ -532,10 +564,10 @@ img.email{
 
 /* Autumn/Hiking */
 .autumn_color_1{
-	background-color: #D36135;
+	background-color: #793a24;
 }
 .autumn_color_text_1{
-	color: #D36135;
+	color: #793a24;
 }
 .autumn_color_2{
 	background-color: #FE7F2D;
@@ -626,4 +658,74 @@ img.email{
 }
 .xmas_color_text_5{
 	color: #A23E3E;
+}
+
+/* Halloween */
+.halloween_color_1{
+	background-color: #FA5923;
+}
+.halloween_color_text_1{
+	color: #FA5923;
+}
+.halloween_color_2{
+	background-color: #00735C;
+}
+.halloween_color_text_2{
+	color: #00735C;
+}
+.halloween_color_3{
+	background-color: #EDB637;
+}
+.halloween_color_text_3{
+	color: #EDB637;
+}
+.halloween_color_4{
+	background-color: #C5BA9F;
+}
+.halloween_color_text_4{
+	color: #C5BA9F;
+}
+.halloween_color_5{
+	background-color: #73366F;
+}
+.halloween_color_text_5{
+	color: #73366F;
+}
+
+/* UTK  (Gets bonus title color changes for full effect) */
+.ut_color_1{
+	background-color: #FF8200;
+}
+.ut_color_text_1{
+	color: #FF8200;
+}
+.ut_color_2{
+	background-color: #fff;
+}
+.ut_color_2 h3{
+	color: #FF8200;
+}
+.ut_color_text_2{
+	color: #fff;
+}
+.ut_color_3{
+	background-color: #FF8200;
+}
+.ut_color_text_3{
+	color: #FF8200;
+}
+.ut_color_4{
+	background-color: #fff;
+}
+.ut_color_4 h3{
+	color: #FF8200;
+}
+.ut_color_text_4{
+	color: #fff;
+}
+.ut_color_5{
+	background-color: #FF8200;
+}
+.ut_color_text_5{
+	color: #FF8200;
 }

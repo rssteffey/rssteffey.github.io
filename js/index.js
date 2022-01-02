@@ -70,6 +70,7 @@ var lightArray = [
     "autumn_color_1",
     "autumn_color_2",
     "winter_color_1",
+    "winter_color_2",
     "shawn_color_1",
     "nye_color_2",
     "nye_color_5",

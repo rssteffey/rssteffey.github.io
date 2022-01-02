@@ -115,8 +115,6 @@ function chooseCurrentSeason(){
   var today = new Date();
   var mon = today.getMonth() + 1; //Normalize to human-indexed
   var day = today.getDate();
-  
-  console.log("Month: " + mon + "  Day: " + day)
 
   // ----- One-day cases first -----
   // Birfday

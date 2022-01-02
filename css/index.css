@@ -245,7 +245,8 @@ canvas{
 
 .about_text{
 	padding-top: 2em;
-	margin: 0 1em 3em 1em
+	margin: 0 1em 3em 1em;
+	font-size: 1.1em;
 }
 
 
@@ -379,6 +380,7 @@ a.learn_more:hover{
 
 img.email{
 	padding-bottom: 1em;
+	max-width: 300px;
 }
 
 .icon-row{
@@ -408,6 +410,81 @@ img.email{
 	z-index: 8000;
 }
 
+/* Phone Tweaks */
+
+@media 
+	(-webkit-min-device-pixel-ratio: 2) and (max-device-width: 850px), 
+	(min-resolution: 192dpi) and (max-device-width: 850px) { 
+
+    .body_wrapper{
+		width: 100%;
+		max-width: 850px;
+	}
+
+	h2 {
+		font-size: 6em;
+	}
+
+	.about_section h2{
+		font-size: 4.5em;
+	}
+
+	#header_links a{
+		font-size: 3em;
+	}
+
+	.icon-row{
+		font-size: 2em;
+	}
+
+	.projects_block{
+		height: fit-content;
+		padding-top: 2em;
+		padding-bottom: 4em;
+		flex-direction: column;
+	}
+
+	.project_desc{
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+
+	.project_desc h3{
+		text-align: center;
+		margin: auto;
+		font-size: 5.5em;
+	}
+	
+	.project_desc p{
+		font-size: 1.7em;
+	}
+
+	.project_image{
+		max-width: 500px;
+		margin-bottom: 2em;
+	}
+
+	.projects_list div:nth-child(4n - 1){
+		flex-direction: column;
+		text-align: right;
+	}
+	
+	.dots_logo{
+		justify-content: space-evenly;
+		width: 40%;
+		margin:auto;
+	}
+	
+	.dot {
+		height: 20px;
+		width: 20px;
+	}
+
+	img.email{
+		padding-bottom: 1em;
+		max-width: 600px;
+	}
+}
 
 
 

@@ -283,17 +283,16 @@ canvas{
 }
 
 a.learn_more{
-	color: red;
 	text-decoration: none;
 	font-size: 1.1em;
 	font-family: 'Gruppo', monospace;
 	line-height: 2em;
 	white-space: nowrap;
-	font-weight: 500;
 }
 
 .project_desc a.learn_more{
 	color: #000000AA;
+	font-weight: 600;
 }
 
 a.learn_more:hover{

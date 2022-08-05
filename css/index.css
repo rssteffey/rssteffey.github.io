@@ -190,6 +190,12 @@ canvas{
 	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
 
+.travel_back_in_time{
+	height: 0px;
+	background: rgb(0,0,0,1);
+	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
 #header_spacer{
 	height: 150px;
 	background: rgb(0,0,0);
@@ -415,24 +421,45 @@ img.email{
 	(-webkit-min-device-pixel-ratio: 2) and (max-device-width: 850px), 
 	(min-resolution: 192dpi) and (max-device-width: 850px) { 
 
-    .body_wrapper{
+    .body_wrapper {
 		width: 100%;
-		max-width: 850px;
+		max-width: 98%;
+	}
+
+	.thirty_perc {
+		height: 15%; /* naming, amiright?? */
+	}
+
+	#header h1 {
+		font-size: 8em;
+		margin-bottom: 1em;
 	}
 
 	h2 {
-		font-size: 6em;
+		font-size: 7em;
 	}
 
+	#header_links {
+		flex-direction: column;
+	}
+
+	#header_links a {
+		font-size: 5em;
+		line-height: 1.5em;
+	}
+
+	/* Eventually mobile should switch to hamburger menu; but for today, just scroll it off page */
+	.fixed_header{
+		position: static;
+		  /* transform: translate(-50%, 0); */
+	}
+
+
 	.about_section h2{
-		font-size: 4.5em;
+		font-size: 5em;
 	}
 
 	.about_text{
-		font-size: 1.4em;
-	}
-
-	#header_links a{
 		font-size: 3em;
 	}
 
@@ -459,17 +486,57 @@ img.email{
 	}
 	
 	.project_desc p{
-		font-size: 1.7em;
+		font-size: 3em;
+		font-weight: 500;
+		margin-bottom: 1em;
+		text-align: left;
+	}
+
+	.project_desc a {
+		font-size: 3em;
+		font-weight: 500;
+		line-height: 1.4em;
+		word-wrap: break-word;
+		white-space: pre-wrap; /* CSS3 */
+		text-align: left;
+		text-decoration: underline;
+	}
+
+	/* Undo alternating patterns */
+	.projects_list div:nth-child(4n - 1){
+		flex-direction: column;
+		text-align: left;
+	}
+
+	a.learn_more:hover{
+		font-weight: 900;
+		font-size: 3.1em;
+		color: #000000FF;
+	}
+
+	.projects_list div:nth-child(4n - 1) a::before{
+		content: ">> ";
+	}
+
+	.projects_list div:nth-child(4n - 1) a::after{
+		content: "";
 	}
 
 	.project_image{
-		max-width: 500px;
+		max-width: 90%;
 		margin-bottom: 2em;
 	}
 
-	.projects_list div:nth-child(4n - 1){
-		flex-direction: column;
-		text-align: right;
+	.panel_edge{
+		height: 0em;
+	}
+
+	.travel_back_in_time{
+		height: 40px;
+	}
+
+	.contact_section{
+		background-color: #00000000;
 	}
 	
 	.dots_logo{

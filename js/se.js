@@ -24,7 +24,7 @@ var loop_height;
 var star_size;
 
 // Workaround CORS since ES6 doesn't play well with static local html files and I'm stubborn
-import('https://unpkg.com/three/build/three.module.js')
+import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.174.0/three.module.js')
 .then((module) => {
     THREE = module;
     init();

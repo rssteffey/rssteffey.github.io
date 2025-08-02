@@ -17,8 +17,7 @@ var props = {
     }
 }
 
-//The fuller spectrum is slightly more fun, but it does feel less personal to my tastes, so we stick with purple
-var color_cycle = props.color_cycles.purple;
+var color_cycle = props.color_cycles.borealis;
 
 var loop_height;
 var star_size;

@@ -468,6 +468,11 @@ body {
         font-size: 1.6rem;;
     }
 
+    .modal-content {
+        max-width: 89%;
+        margin: auto;
+    }
+
 }
 
 /* Safari hack because the shadow there is WAY too dark */

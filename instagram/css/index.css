@@ -412,11 +412,13 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: rgba(255, 255, 255, 0.692);
+    color: black;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: #000 2px solid;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,7 +434,9 @@ body {
 }
 
 .back-to-top:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(131, 58, 180, 1);
+    color: white;
+    border-color: #fff;
 }
 
 @media only screen and (max-width: 700px) {

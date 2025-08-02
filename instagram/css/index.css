@@ -469,3 +469,11 @@ body {
     }
 
 }
+
+/* Safari hack because the shadow there is WAY too dark */
+
+@supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+    .header h1 {
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    }
+}

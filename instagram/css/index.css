@@ -16,6 +16,22 @@ body {
     text-align: center;
 }
 
+.homepage-link{
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+}
+
+.homepage-link a {
+    color: white;
+    text-decoration: underline;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+}
+
 .header h1 {
     font-family: 'Qwigley', cursive;
     font-size: 8em;
@@ -526,6 +542,13 @@ body {
     }
 
     .event-jumper a {
+        font-size: 1.5rem;
+    }
+
+    .homepage-link{
+        position: absolute;
+        top: 10px;
+        left: 10px;
         font-size: 1.5rem;
     }
 }

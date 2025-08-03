@@ -29,10 +29,6 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.homepage-link:hover {
-    color: #520372;
-}
-
 .back-to-top {
     position: fixed;
     bottom: 25px;
@@ -49,10 +45,6 @@ body {
 
 .back-to-top.visible {
     opacity: 1;
-}
-
-.back-to-top:hover {
-    color: #520372;
 }
 
 .header h1 {
@@ -96,11 +88,6 @@ body {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-.date-jumper a:hover {
-    color:#520372;
-    text-decoration: underline;
-}
-
 .event-jumper {
     display: flex; 
     gap: 1rem; 
@@ -122,11 +109,6 @@ body {
     font-weight: 200;
     text-decoration: none;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-}
-
-.event-jumper a:hover {
-    color:#520372;
-    text-decoration: underline;
 }
 
 .grid-container {
@@ -479,6 +461,26 @@ body {
     font-size: 16px;
 }
 
+@media (hover: hover) {
+    .homepage-link:hover {
+        color: #520372;
+    }
+
+    .back-to-top:hover {
+        color: #520372;
+    }
+
+    .date-jumper a:hover {
+        color:#520372;
+        text-decoration: underline;
+    }
+
+    .event-jumper a:hover {
+        color:#520372;
+        text-decoration: underline;
+    }
+}
+
 @media only screen and (max-width: 750px) {
     .grid-container {
         max-width: 700px;
@@ -512,7 +514,6 @@ body {
         max-width: 89%;
         margin: auto;
     }
-
 }
 
 @media only screen and (max-width: 450px) {

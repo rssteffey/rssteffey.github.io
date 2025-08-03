@@ -503,11 +503,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Add back-to-top arrow
-const backToTop = document.createElement('a');
-backToTop.href = '#top';
-backToTop.className = 'back-to-top';
-backToTop.innerHTML = '↑';
-document.body.appendChild(backToTop);
+const backToTop = document.querySelector('.back-to-top');
 
 // Show/hide back-to-top arrow based on scroll position
 window.addEventListener('scroll', () => {

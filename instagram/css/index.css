@@ -40,7 +40,7 @@ body {
     margin: auto;
     border-top: #ffffff80 1px solid;
     border-bottom: #ffffff75 1px solid;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     margin-top: 0;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -58,6 +58,34 @@ body {
 }
 
 .date-jumper a:hover {
+    color:#520372;
+    text-decoration: underline;
+}
+
+.event-jumper {
+    display: flex; 
+    gap: 1rem; 
+    row-gap: 0rem;
+    justify-content: center; 
+    margin: auto;
+    /* border-top: #ffffff80 1px solid; */
+    border-bottom: #ffffff75 1px solid;
+    margin-bottom: 50px;
+    padding-top: 5px;
+    width: fit-content
+}
+
+.event-jumper a {
+    font-family: 'Qwigley', cursive;
+    font-size: 2rem;
+    color: white;
+    font-style: normal;
+    font-weight: 200;
+    text-decoration: none;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.event-jumper a:hover {
     color:#520372;
     text-decoration: underline;
 }
@@ -464,6 +492,10 @@ body {
         flex-wrap: wrap;
     }
 
+    .event-jumper {
+        flex-wrap: wrap;
+    }
+
     .date-jumper a {
         font-size: 1.6rem;;
     }
@@ -473,6 +505,54 @@ body {
         margin: auto;
     }
 
+}
+
+@media only screen and (max-width: 450px) {
+    .header h1 {
+        font-size: 4rem;
+        overflow: hidden;
+    }
+
+    .date-jumper {
+        flex-wrap: wrap;
+        margin-left: 3rem;
+        margin-right: 3rem; 
+    }
+
+    .event-jumper {
+        flex-wrap: wrap;
+        margin-left: 3rem;
+        margin-right: 3rem; 
+    }
+
+    .event-jumper a {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .header {
+        padding-top: 1rem;;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .date-jumper {
+        margin-left: 1rem;
+        margin-right: 1rem; 
+    }
+
+    .event-jumper {
+        margin-left: 1rem;
+        margin-right: 1rem; 
+    }
+
+    .event-jumper a {
+        font-size: 1.5rem;
+    }
 }
 
 /* Safari hack because the shadow there is WAY too dark */

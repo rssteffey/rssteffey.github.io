@@ -26,10 +26,11 @@ body {
     text-decoration: underline;
     font-style: italic;
     font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .homepage-link:hover {
-    color: rgba(131, 58, 180, 1);
+    color: #520372;
 }
 
 .back-to-top {
@@ -43,6 +44,7 @@ body {
     z-index: 1000;
     cursor: pointer;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .back-to-top.visible {
@@ -50,7 +52,7 @@ body {
 }
 
 .back-to-top:hover {
-    color: rgba(131, 58, 180, 1);
+    color: #520372;
 }
 
 .header h1 {
